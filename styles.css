@@ -1,0 +1,287 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 0;
+}
+
+main {
+    padding: 2em;
+}
+
+#hero {
+    text-align: center;
+    padding: 2em;
+    background: url('images/background.jpg') center/cover;
+}
+
+#hero h2 {
+    font-size: 2em;
+    color: #fff;
+    background-color: rgba(52, 152, 219, 0.7);
+    padding: 1em;
+}
+
+
+#intro {
+    margin-top: 2em;
+    text-align: center;
+    position: relative; /* Add this to position the arrow */
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.scroll-down p {
+    margin-bottom: 5px;
+}
+
+.scroll-down a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.scroll-down a:hover {
+    color: #2980b9;
+}
+
+#intro img.headshot {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    border-radius: 50%; /* Create a circular border */
+    margin-bottom: 1em; /* Add some space below the headshot */
+}
+
+#intro h2 {
+    color: #333;
+}
+
+#about {
+    margin-top: 3em;
+}
+
+.about-me {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-me h2{
+    text-align: center;
+}
+
+.about-me p {
+    text-align: center;
+}
+
+.notable-clients {
+    margin-top: 1em;
+}
+
+.notable-clients h3 {
+    font-size: 1.2em;
+}
+
+.notable-clients ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notable-clients li {
+    margin-bottom: 0.5em;
+}
+
+#projects {
+    margin-top: 3em;
+    /* text-align: center; */
+}
+
+#projects h2 {
+    text-align: center;
+}
+
+.project {
+    display: flex;
+    margin-bottom: 2em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Apply Animation to Sections and Buttons */
+.project,
+/* #intro, */
+.about-content,
+.about-me,
+#projects {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project:hover,
+#intro:hover,
+.about-content:hover,
+.about-me:hover,
+#projects:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.project img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project-details {
+    padding: 1em;
+}
+
+.project-details,
+.project-actions {
+    transition: opacity 0.5s ease;
+}
+
+.project-details h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.project-details p {
+    color: #555;
+}
+
+.project-actions {
+    margin-top: 1em;
+}
+
+.project:hover .project-details,
+.project:hover .project-actions {
+    opacity: 1;
+}
+
+.btn-view-demo,
+.btn-learn-more {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project:hover .btn-view-demo,
+.project:hover .btn-learn-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.btn-view-demo,
+.btn-learn-more {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin-right: 1em;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-view-demo {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-learn-more {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-view-demo:hover,
+.btn-learn-more:hover {
+    background-color: #2980b9;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+}
+
+
+nav {
+    background-color: #333;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.navigation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-list li {
+    margin-right: 1em;
+    display: inline-block;
+}
+
+.navigation-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navigation-list a:hover {
+    color: #3498db; /* Change color on hover */
+}
+
+/* Add these styles for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add a global transition for smooth scrolling */
+body, main, section {
+    transition: background-color 0.5s ease;
+}
