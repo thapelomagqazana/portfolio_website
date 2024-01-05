@@ -3,36 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Details</title>
-    <!-- Include your main stylesheet -->
-    <!-- <link rel="stylesheet" href="styles.css">  -->
-    <script defer src="scripts.js"></script> <!-- Include your main JavaScript file -->
+    <title>Budget Tracker Project</title>
+    <script defer src="../script.js"></script> <!-- Include your main JavaScript file -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Project Name</h1>
+        <h1>Budget Tracker</h1>
         <!-- Add any other header information you want -->
     </header>
 
     <!-- Main Content Section -->
-    <main>
+    <main id="project-content">
         <!-- Project Overview -->
         <section id="project-overview">
             <h2>Project Overview</h2>
-            <!-- Add a brief overview of the project -->
+            <p>Welcome to the Budget Tracker project! This web application helps users manage their finances by tracking income and expenses. It provides a user-friendly interface for adding, viewing, and managing transactions.</p>
         </section>
 
         <!-- Project Details -->
         <section id="project-details">
             <h2>Details</h2>
-            <!-- Add detailed information about the project -->
+            <p>Usage:</p>
+            <ul>
+                <li>Fill in the transaction details (Name, Amount, Type) in the form. Click the "Add Transaction" button.</li>
+                <li>Use the "Sort by" and "Filter by" options to customize the display of transactions.</li>
+                <li>Click the "Clear All Transactions" button to remove all transactions (confirmation dialog will appear).</li>
+                <li>Observe the statistics section for real-time updates based on your transactions.</li>
+            </ul>
+            <p>Technologies Used:</p>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
         </section>
 
         <!-- Project Screenshots or Videos -->
         <section id="project-media">
             <h2>Media</h2>
-            <!-- Add screenshots, videos, or any other media related to the project -->
+            <div class="screenshot-gallery">
+                <!-- Screenshot 1 - Dashboard Overview -->
+                <a href="../images/project_details/dashboard.png" data-lightbox="gallery" data-title="Dashboard Overview">
+                    <img src="../images/project_details/dashboard.png" alt="Dashboard Overview">
+                    <p>Dashboard Overview</p>
+                </a>
+
+                <!-- Screenshot 2 - Adding a Transaction -->
+                <a href="../images/project_details/add_transaction.png" data-lightbox="gallery" data-title="Adding a Transaction">
+                    <img src="../images/project_details/add_transaction.png" alt="Adding a Transaction">
+                    <p>Adding a Transaction</p>
+                </a>
+
+                <!-- Screenshot 3 - Filter Transactions -->
+                <a href="../images/project_details/filter_transactions.png" data-lightbox="gallery" data-title="Filter Transactions">
+                    <img src="../images/project_details/filter_transactions.png" alt="Filter Transactions">
+                    <p>Filtering Transactions</p>
+                </a>
+
+
+                <!-- Screenshot 3 - Filter Transactions -->
+                <a href="../images/project_details/delete_transaction.png" data-lightbox="gallery" data-title="Delete a Transaction">
+                    <img src="../images/project_details/delete_transaction.png" alt="Delete a Transaction">
+                    <p>Delete a Transaction</p>
+                </a>
+
+                <!-- Add more screenshots with similar structure -->
+
+            </div>
         </section>
 
         <!-- Additional Sections as Needed -->
