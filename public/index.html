@@ -106,7 +106,7 @@
         </div> -->
 
         <!-- Indicate that more projects are coming -->
-        <p class="more-projects-coming">More projects coming soon!</p>
+        <p class="more-projects-coming">Hover over the blank (More projects coming soon!)</p>
     
         <!-- Add more project cards as needed -->
     
@@ -186,6 +186,9 @@
       
           <label for="message">Your Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
+
+          <!-- Add a div for reCAPTCHA widget -->
+          <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
       
           <button type="submit">Send Message</button>
         </form>
@@ -204,6 +207,7 @@
     </footer>
   <!-- Include your JavaScript file -->
   <script src="script.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     const darkmode = new Darkmode({
       label: '🌓', // Emoji or text to display in the widget

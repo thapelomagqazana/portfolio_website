@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body, #projects1{
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -109,7 +113,7 @@ nav {
     margin: 0 15px;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   nav a:hover {
@@ -294,12 +298,20 @@ nav {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border-radius: 8px;
-    transition: box-shadow 0.3s ease-in-out;
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(20px); /* Move the cards down by 20px */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition properties */
   }
   
   .project-card:hover {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   }
+
+/* Add this rule to make the cards appear on hover */
+.project-card:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
   
   .project-image img {
     width: 100%;

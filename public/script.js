@@ -33,3 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
+// Optional smooth scrolling for browsers that don't support "scroll-behavior: smooth"
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+});
