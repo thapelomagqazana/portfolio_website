@@ -375,4 +375,74 @@ nav {
     background-color: #0056b3; /* Darker blue color on hover */
   }
   
+  /* contact section styles */
+#contact {
+    background-color: #007bff; /* Blue background color for the contact section */
+    color: #fff; /* White text color */
+    padding: 80px 0; /* Adjust padding as needed */
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  label {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #fff; /* White background color for the button */
+    color: #007bff; /* Blue text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  
+  /* footer styles */
+  footer {
+    background-color: #333; /* Dark background color for the footer */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+  }
+  
+  .social-icons {
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    color: #fff; /* White color for social icons */
+    margin-right: 15px;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff; /* Blue color on hover */
+  }
     
