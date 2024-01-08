@@ -255,4 +255,35 @@ nav {
     background-color: #007bff; /* Primary color */
     color: #fff; /* White text */
   }
+
+  /* about section styles */
+#about {
+    background-color: #f8f8f8; /* Light background color */
+    padding: 80px 0; /* Adjust padding as needed */
+  }
   
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .about-text {
+    width: 60%;
+  }
+  
+  .about-text p {
+    font-size: 18px;
+    color: #333; /* Dark text color */
+    line-height: 1.6;
+  }
+  
+  .about-image {
+    width: 35%;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    border-radius: 8px; /* Add a border radius for rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
