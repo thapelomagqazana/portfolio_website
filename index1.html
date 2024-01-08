@@ -8,6 +8,9 @@
   <!-- Include your CSS file -->
   <link rel="stylesheet" href="styles1.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -33,10 +36,14 @@
   </nav>
   <main>
     <section id="hero">
-        <!-- <h1>Thapelo</h1> -->
+      <video autoplay muted loop playsinline>
+        <source src="clips/pexels.mp4" type="video/mp4"> <!-- Add your video path -->
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-content">
         <h2>Passionate about Creating Digital Experiences</h2>
-        <!-- <p>Showcasing Innovation in Software Development</p> -->
         <a href="#projects">View Projects</a>
+      </div>
     </section>
     <section id="intro">
         <div class="intro-content">
@@ -78,13 +85,13 @@
             <div class="project-content">
             <h3 class="project-title">CashFlow Manager</h3>
             <p class="project-description">This app simplifies financial management by tracking and organizing user transactions with an intuitive interface.</p>
-            <a href="#" class="project-link">View Project</a>
+            <a href="https://cashflow-manger.netlify.app/" class="project-link">View Project</a>
             <a href="#" class="source-code-link">View Source Code</a>
-            <a href="#" class="docs-link">Read Documentation</a>
+            <a href="projects/cashflow_details.html" class="docs-link">Read Documentation</a>
             </div>
         </div>
     
-        <div class="project-card">
+        <!-- <div class="project-card">
             <div class="project-image">
             <img src="project2.jpg" alt="Project 2">
             </div>
@@ -95,7 +102,10 @@
             <a href="#" class="source-code-link">View Source Code</a>
             <a href="#" class="docs-link">Read Documentation</a>
             </div>
-        </div>
+        </div> -->
+
+        <!-- Indicate that more projects are coming -->
+        <p class="more-projects-coming">More projects coming soon!</p>
     
         <!-- Add more project cards as needed -->
     
