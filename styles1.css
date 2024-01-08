@@ -287,3 +287,35 @@ nav {
     border-radius: 8px; /* Add a border radius for rounded corners */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
   }
+
+  /* skills section styles */
+#skills {
+    background-color: #fff; /* White background color */
+    padding: 80px 0; /* Adjust padding as needed */
+  }
+  
+  .skills-content {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .skills-category {
+    width: 30%;
+  }
+  
+  .skills-category h3 {
+    font-size: 24px;
+    color: #333; /* Dark text color */
+  }
+  
+  .skills-category ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .skills-category li {
+    font-size: 18px;
+    color: #555; /* Slightly darker text color */
+    margin-bottom: 10px;
+  }
+  
