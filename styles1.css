@@ -318,4 +318,61 @@ nav {
     color: #555; /* Slightly darker text color */
     margin-bottom: 10px;
   }
+/* blog section styles */
+#blog {
+    background-color: #f5f5f5; /* Light gray background color */
+    padding: 80px 0; /* Adjust padding as needed */
+  }
   
+  .blog-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .blog-post {
+    width: 30%;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff; /* White background color for each blog post */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .blog-post:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly larger box shadow on hover */
+  }
+  
+  .blog-post h3 {
+    font-size: 24px;
+    color: #333; /* Dark text color */
+  }
+  
+  .blog-date {
+    font-size: 14px;
+    color: #555; /* Slightly darker text color */
+    margin-bottom: 10px;
+  }
+  
+  .blog-excerpt {
+    font-size: 16px;
+    color: #666; /* Medium gray text color */
+    margin-bottom: 20px;
+  }
+  
+  .read-more {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  
+    
