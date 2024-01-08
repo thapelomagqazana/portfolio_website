@@ -79,4 +79,25 @@ header {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+
+  /* Navigation styles */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
   
