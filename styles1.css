@@ -374,7 +374,7 @@ nav {
   .read-more:hover {
     background-color: #0056b3; /* Darker blue color on hover */
   }
-  
+
   /* contact section styles */
 #contact {
     background-color: #007bff; /* Blue background color for the contact section */
@@ -399,7 +399,7 @@ nav {
     justify-content: space-between;
   }
   
-  label {
+  .container label {
     flex-basis: 48%;
     margin-bottom: 10px;
   }
@@ -445,4 +445,6 @@ nav {
   .social-icons a:hover {
     color: #007bff; /* Blue color on hover */
   }
-    
+  
+
+  
