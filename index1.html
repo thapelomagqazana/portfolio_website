@@ -11,19 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.0.1/darkmode-js.min.js" integrity="sha512-ymWtnAHkpz3iFpi6C3iIVQmPiGq1CiTTPLjR7hMKWADXx+CSwyARyJlyCcQRH5VRGpYkwwLzTW4bgkqtRmNk9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <header>
     <div class="header-container">
         <h1>Thapelo</h1>
         <p class="tagline">Software Developer</p>
-        <div class="toggle-container">
+        <!-- <div class="toggle-container">
           <label class="switch">
             <input type="checkbox" id="darkModeToggle">
             <span class="slider round"></span>
           </label>
           <label for="darkModeToggle">Dark Mode</label>
-        </div>
+        </div> -->
       </div>
   </header>
   <nav>
@@ -85,9 +86,9 @@
             <div class="project-content">
             <h3 class="project-title">CashFlow Manager</h3>
             <p class="project-description">This app simplifies financial management by tracking and organizing user transactions with an intuitive interface.</p>
-            <a href="https://cashflow-manger.netlify.app/" class="project-link">View Project</a>
-            <a href="#" class="source-code-link">View Source Code</a>
-            <a href="projects/cashflow_details.html" class="docs-link">Read Documentation</a>
+            <a href="https://cashflow-manger.netlify.app/" class="project-link" target="_blank">View Project</a>
+            <a href="https://github.com/thapelomagqazana/budget_tracker" class="source-code-link" target="_blank">View Source Code</a>
+            <a href="projects/cashflow_details.html" class="docs-link" target="_blank">Read Documentation</a>
             </div>
         </div>
     
@@ -111,6 +112,17 @@
     
         </div>
     </section>
+
+    <!-- Parallax Section -->
+    <section id="parallax-section">
+      <div class="parallax-bg"></div>
+      <div class="parallax-content">
+        <blockquote>
+          “Everyone should learn how to program a computer because it teaches you how to think.” 
+          <cite>- Steve Jobs</cite>
+      </blockquote>  
+      </div>
+  </section>
     <section id="skills">
         <div class="container">
           <h2 class="heading">Skills</h2>
@@ -185,13 +197,21 @@
         <div class="container">
         <p>&copy; 2024 Thapelo Magqazana. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="www.linkedin.com/in/thapelo-magqazana-90632a174" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/thapelomagqazana" target="_blank"><i class="fab fa-github"></i></a>
         </div>
         </div>
     </footer>
   <!-- Include your JavaScript file -->
   <script src="script1.js"></script>
+  <script>
+    const darkmode = new Darkmode({
+      label: '🌓', // Emoji or text to display in the widget
+      time: '0.5s', // Transition duration in seconds
+      saveInCookies: true, // Save user's preference in cookies
+      autoMatchOsTheme: true, // Automatically match OS theme if supported
+    });
+    darkmode.showWidget();
+  </script>
 </body>
 </html>

@@ -72,3 +72,24 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+
+/* Dark mode styles */
+.darkmode--activated body {
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+.darkmode--activated header {
+    background-color: #333; /* Dark header background color */
+    color: #fff; /* Light header text color */
+}
+
+.darkmode--activated #project-content {
+    background-color: #121212; /* Dark main content background color */
+    color: #fff; /* Light main content text color */
+  }
+  
+  .darkmode--activated footer {
+    background-color: #333; /* Dark footer background color */
+    color: #fff; /* Light footer text color */
+  }

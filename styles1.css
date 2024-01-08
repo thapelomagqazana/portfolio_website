@@ -1,5 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
+  margin: 0;
+  /* font-size: 16px; */
 }
 /* Header styles */
 header {
@@ -92,6 +94,7 @@ nav {
     background-color: #333;
     padding: 10px 0;
     text-align: center;
+    
   }
   
   nav a {
@@ -552,5 +555,157 @@ nav {
     color: #007bff; /* Blue color on hover */
   }
   
+/* Parallax Section Styles */
+#parallax-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  
+.parallax-bg {
+  background-image: url('images/pexels-christina-morillo-1181359.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.parallax-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px; 
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+cite {
+  display: block;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* Dark mode styles */
+.darkmode--activated body {
+  background-color: #121212; /* Dark background color */
+  color: #fff; /* Light text color */
+}
+
+.darkmode--activated header {
+  background-color: #333; /* Dark header background color */
+  color: #fff; /* Light header text color */
+}
+
+.darkmode--activated nav {
+  background-color: #555; /* Dark navigation background color */
+}
+
+.darkmode--activated nav a:hover{
+  background-color: #444242; /* Dark navigation background color */
+}
+
+.darkmode--activated main {
+  background-color: #121212; /* Dark main content background color */
+  color: #fff; /* Light main content text color */
+}
+
+.darkmode--activated footer {
+  background-color: #333; /* Dark footer background color */
+  color: #fff; /* Light footer text color */
+}
+
+.darkmode--activated .project-container .project-link,
+.darkmode--activated .project-container .source-code-link,
+.darkmode--activated .project-container .docs-link {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Mobile styles using media queries */
+@media only screen and (max-width: 600px) {
+  /* Adjust styles for smaller screens */
+  header {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    padding: 5px 0;
+  }
+
+  nav a {
+    font-size: 1rem;
+    margin: 0 10px;
+    padding: 8px 12px;
+  }
+}
+
+/* Tablet styles using media queries */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  header {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    padding: 10px 0;
+  }
+
+  nav a {
+    font-size: 1.1rem;
+    margin: 0 12px;
+    padding: 8px 14px;
+  }
+}
+
+/* Desktop styles using media queries */
+@media only screen and (min-width: 1025px) {
+  header {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  nav {
+    padding: 15px 0;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+    margin: 0 15px;
+    padding: 10px 15px;
+  }
+}
+
