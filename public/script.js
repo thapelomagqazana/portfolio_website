@@ -68,12 +68,3 @@ function toggleDarkMode() {
     // Save user's dark mode preference in local storage
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 }
-
-// {/* <nav class="fixed-nav">
-//       <a href="#intro">Intro</a>
-//       <a href="#about">About</a>
-//       <a href="#projects">Projects</a>
-//       <a href="#skills">Skills</a>
-//       <a href="#blog">Blog</a>
-//       <a href="#contact">Contact</a>
-//     </nav> */}
