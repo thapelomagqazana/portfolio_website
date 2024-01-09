@@ -5,9 +5,64 @@ html {
 body, #projects1{
   font-family: 'Arial', sans-serif;
   margin: 0;
+  transition: background-color 0.5s;
   /* font-size: 16px; */
 }
 
+body {
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+}
+
+
+
+.fixed-header {
+  background-color: #333; /* Choose a background color for your fixed header */
+  padding: 10px; /* Adjust padding as needed */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header is above other elements */
+}
+
+/* Add these styles for navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333; /* Add a background color for the navigation bar */
+  padding: 10px 0; /* Add padding to the navigation bar */
+  z-index: 1000; /* Ensure the navigation bar is on top of other elements */
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff; /* Set text color to white */
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #007bff;
+}
+/* Adjust the main content to give space for the fixed nav */
+main {
+  margin-top: 60px; /* Combined height of header (50px) and nav (28px) */
+}
 #projects1 {
     padding: 0;
     box-sizing: border-box;
@@ -16,7 +71,7 @@ body, #projects1{
 header {
     background-color: #222;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
   }
   
@@ -25,8 +80,12 @@ header {
     margin: 0 auto;
   }
 
+
+
   .header-container h1 {
     font-family: 'Monoton', sans-serif;
+    margin-top: 20px;
+    
   }
   
   h1 {
@@ -50,6 +109,7 @@ header {
     display: inline-block;
     width: 60px;
     height: 34px;
+    
   }
   
   .switch input {
@@ -98,27 +158,7 @@ header {
     transform: translateX(26px);
   }
 
-  /* Navigation styles */
-nav {
-    background-color: #333;
-    padding: 10px 0;
-    text-align: center;
-    
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-    margin: 0 15px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  nav a:hover {
-    background-color: #555;
-  }
+
 
   /* Hero section styles */
 /* Hero section styles */
@@ -389,15 +429,18 @@ nav {
 #skills {
     background-color: #fff; /* White background color */
     padding: 80px 0; /* Adjust padding as needed */
+    text-align: center;
   }
   
   .skills-content {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
   }
   
   .skills-category {
-    width: 30%;
+    width: 100%;
+    margin-bottom: 20px; 
   }
   
   .skills-category h3 {
@@ -433,12 +476,19 @@ nav {
     padding: 20px;
     background-color: #fff; /* White background color for each blog post */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Subtle box shadow */
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(20px); /* Move the cards down by 20px */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition properties */
   }
   
   .blog-post:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly larger box shadow on hover */
+  }
+
+  .blog-post:hover {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .blog-post h3 {
@@ -621,6 +671,26 @@ nav {
   .social-icons a:hover {
     color: #007bff; /* Blue color on hover */
   }
+
+  .cta-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .download-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff; /* Choose a color that fits your design */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
   
 /* Parallax Section Styles */
 #parallax-section {
@@ -630,7 +700,7 @@ nav {
 }
 
 .parallax-bg {
-  background-image: url('images/pexels-christina-morillo-1181359.jpg'); /* Replace with your image path */
+  background-image: url('images/pexels-christina-morillo-1181359.jpg');
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -676,103 +746,227 @@ cite {
   color: #ccc;
 }
 
-/* Dark mode styles */
-.darkmode--activated body {
-  background-color: #121212; /* Dark background color */
-  color: #fff; /* Light text color */
-}
+/* Media Queries */
 
-.darkmode--activated header {
-  background-color: #333; /* Dark header background color */
-  color: #fff; /* Light header text color */
-}
+/* Tablets and Small Screens */
+@media only screen and (max-width: 768px) {
+  /* Adjust styles for screens up to 768px wide */
 
-.darkmode--activated nav {
-  background-color: #555; /* Dark navigation background color */
-}
+  .navbar li {
+    margin: 0 10px;
+  }
 
-.darkmode--activated nav a:hover{
-  background-color: #444242; /* Dark navigation background color */
-}
+  .project-card {
+    flex-direction: column;
+  }
 
-.darkmode--activated main {
-  background-color: #121212; /* Dark main content background color */
-  color: #fff; /* Light main content text color */
-}
-
-.darkmode--activated footer {
-  background-color: #333; /* Dark footer background color */
-  color: #fff; /* Light footer text color */
-}
-
-.darkmode--activated .project-container .project-link,
-.darkmode--activated .project-container .source-code-link,
-.darkmode--activated .project-container .docs-link {
-  border-color: #fff;
-  color: #fff;
-}
-
-/* Mobile styles using media queries */
-@media only screen and (max-width: 600px) {
-  /* Adjust styles for smaller screens */
-  header {
+  .project-content {
     padding: 10px;
   }
 
-  h1 {
-    font-size: 2rem;
+  /* Add more specific styles as needed for smaller screens */
+}
+
+/* Mobile Smartphones */
+@media only screen and (max-width: 480px) {
+  /* Adjust styles for screens up to 480px wide (typical mobile smartphones) */
+
+  body {
+    font-size: 14px; /* Adjust the base font size for better readability */
   }
 
-  nav {
+  .navbar {
     padding: 5px 0;
   }
 
-  nav a {
-    font-size: 1rem;
+  .navbar li {
     margin: 0 10px;
-    padding: 8px 12px;
   }
-}
 
-/* Tablet styles using media queries */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  header {
-    padding: 15px;
+  .navbar a {
+    font-size: 16px;
   }
 
   h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h1 {
     font-size: 2rem;
   }
 
-  nav {
-    padding: 10px 0;
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 15px;
   }
 
-  nav a {
-    font-size: 1.1rem;
-    margin: 0 12px;
-    padding: 8px 14px;
+  .intro-text h2 {
+    font-size: 1.8rem;
   }
+
+  .intro-text p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .project-title {
+    font-size: 1.2em;
+  }
+
+  .blog-post h3 {
+    font-size: 18px;
+  }
+
+  .blog-date {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .blog-excerpt {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* Add more specific styles as needed for mobile screens */
 }
 
-/* Desktop styles using media queries */
-@media only screen and (min-width: 1025px) {
-  header {
-    padding: 25px;
-  }
+/* Dark mode styles */
+.dark-mode,
+.dark-mode .blog-post a:hover,
+.dark-mode #project-content a:hover,
+.dark-mode .header-container .cta-container a:hover,
+.dark-mode #contact button:hover{
+  background-color: #121212; /* Dark background color */
+  color: #fff; 
+}
 
-  h1 {
-    font-size: 2.5rem;
-  }
+.dark-mode header,
+.dark-mode footer{
+  background-color: #5E5E5E; /* Dark header background color */
+  color: #121212;
+}
 
-  nav {
-    padding: 15px 0;
-  }
+.dark-mode .switch {
+  background-color: #5E5E5E; /* Light switch background color */
+}
 
-  nav a {
-    font-size: 1.2rem;
-    margin: 0 15px;
-    padding: 10px 15px;
-  }
+.dark-mode .tagline,
+.dark-mode .contact-heading,
+.dark-mode .social-icons a:hover,
+.dark-mode .navbar ul a:hover{
+  color:#ff7e1a;
+}
+
+.dark-mode nav{
+  background-color:#878787;
+  
+}
+
+.dark-mode .header-container,
+.dark-mode nav a{
+  color: #121212;
+}
+
+.dark-mode #intro,
+.dark-mode #about,
+.dark-mode #projects,
+.dark-mode #skills,
+.dark-mode #contact,
+.dark-mode #blog,
+.dark-mode .blog-post{
+  background-color: #121212;
+  
+}
+
+.dark-mode .intro-text h2,
+.dark-mode .intro-text p,
+.dark-mode .container h2,
+.dark-mode .about-text p,
+.dark-mode .project-card h3,
+.dark-mode .project-card p,
+.dark-mode #projects .container p,
+.dark-mode .skills-category h3,
+.dark-mode .skills-category li,
+.dark-mode .blog-post h3,
+.dark-mode .blog-post p,
+.dark-mode .contact-form,
+.dark-mode #project-content section h2,
+.dark-mode #project-content section p,
+.dark-mode #project-content section li{
+  color: #878787;
+}
+
+.dark-mode .about-image{
+  filter: grayscale(100%);
+}
+
+.dark-mode #intro h2 span {
+  color:#2C7D25;
+}
+
+.dark-mode #intro #a {
+  color:#524C96;
+}
+
+.dark-mode #intro #b {
+  color:#6A4C96;
+}
+
+.dark-mode #intro #a {
+  color:#987E4E;
+}
+
+.dark-mode .intro-image{
+  filter: grayscale(100%);
+}
+
+.dark-mode #hero a {
+  background-color: #121212;
+  color: #878787;
+}
+
+.dark-mode #hero h2,
+.dark-mode .social-icons a{
+  color:#121212;
+}
+
+.dark-mode .project-card a{
+  border-color: #ff7e1a;
+  color: #ff7e1a;
+}
+
+.dark-mode .contact-form input,
+.dark-mode .contact-form textarea{
+  border-color: #ff7e1a;
+  background-color: #121212;
+  color: #fff;
+}
+
+.dark-mode #hero a:hover,
+.dark-mode .project-card a:hover,
+.dark-mode .blog-post a,
+.dark-mode .contact-form button,
+.dark-mode .download-button,
+.dark-mode .back{
+  background-color: #ff7e1a;
+  color: #121212;
+  font-weight: bold;
+}
+
+.dark-mode .project-card,
+.dark-mode .blog-post,
+.dark-mode .blog-post a:hover,
+.dark-mode #contact,
+.dark-mode #project-content a:hover,
+.dark-mode #contact button:hover{
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .parallax-bg{
+  background-image: url("images/pexels-kevin-ku-577585.jpg");
+}
+
+.dark-mode .project-image{
+  filter: grayscale(100%);
 }
 

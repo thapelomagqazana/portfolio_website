@@ -12,29 +12,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.0.1/darkmode-js.min.js" integrity="sha512-ymWtnAHkpz3iFpi6C3iIVQmPiGq1CiTTPLjR7hMKWADXx+CSwyARyJlyCcQRH5VRGpYkwwLzTW4bgkqtRmNk9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
+  <header class="fixed-header">
     <div class="header-container">
         <h1>Thapelo</h1>
         <p class="tagline">Software Developer</p>
-        <!-- <div class="toggle-container">
+        <div class="toggle-container">
           <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
+            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
             <span class="slider round"></span>
           </label>
           <label for="darkModeToggle">Dark Mode</label>
-        </div> -->
-      </div>
+        </div>
+        <div class="cta-container">
+          <a href="path/to/your/resume.pdf" download="Thapelo_Magqazana_Resume.pdf" class="download-button">Download Resume</a>
+        </div>
+        
+        
+    </div>
+    <!-- Add the navigation bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="#hero"><i class="fas fa-home"></i></a></li>
+        <li><a href="#intro"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="#projects"><i class="fas fa-laptop-code"></i></a></li>
+        <li><a href="#skills"><i class="fas fa-cogs"></i></a></li>
+        <li><a href="#blog"><i class="fas fa-blog"></i></a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
+      </ul>
+    </nav>
+    
   </header>
-  <nav>
-    <a href="#intro">Intro</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+  
+ 
   <main>
     <section id="hero">
       <video autoplay muted loop playsinline>
@@ -91,19 +104,6 @@
             <a href="projects/cashflow_details.html" class="docs-link" target="_blank">Read Documentation</a>
             </div>
         </div>
-    
-        <!-- <div class="project-card">
-            <div class="project-image">
-            <img src="project2.jpg" alt="Project 2">
-            </div>
-            <div class="project-content">
-            <h3 class="project-title">Project 2</h3>
-            <p class="project-description">Description of Project 2 goes here. Keep it concise and engaging.</p>
-            <a href="#" class="project-link">View Project</a>
-            <a href="#" class="source-code-link">View Source Code</a>
-            <a href="#" class="docs-link">Read Documentation</a>
-            </div>
-        </div> -->
 
         <!-- Indicate that more projects are coming -->
         <p class="more-projects-coming">Hover over the blank (More projects coming soon!)</p>
@@ -133,15 +133,19 @@
                 <li>JavaScript</li>
                 <li>Python</li>
                 <li>Java</li>
+                <li>HTML</li>
+                <li>SQL</li>
                 <!-- Add more languages as needed -->
               </ul>
             </div>
             <div class="skills-category">
               <h3>Frameworks</h3>
               <ul>
-                <li>React.js</li>
                 <li>Node.js</li>
                 <li>Django</li>
+                <li>JUnit</li>
+                <li>Jest</li>
+                <li>Pytest</li>
                 <!-- Add more frameworks as needed -->
               </ul>
             </div>
@@ -149,28 +153,69 @@
               <h3>Other Skills</h3>
               <ul>
                 <li>Git</li>
-                <li>RESTful APIs</li>
-                <li>Database Management</li>
+                <li>APIs</li>
+                <li>DevOps practices using GitHub Actions</li>
+                <li>Client-server architecture</li>
+                <li>Network Programming</li>
+                <li>Automated testing</li>
+                <li>Collaboration and teamwork</li>
                 <!-- Add more skills as needed -->
               </ul>
             </div>
           </div>
         </div>
     </section>
+
     <!-- blog section -->
     <section id="blog">
         <div class="container">
         <h2 class="heading">Blog</h2>
-        <div class="blog-content">
-            <!-- Placeholder for blog posts -->
-            <div class="blog-post">
-            <h3>Blog Post Title</h3>
-            <p class="blog-date">Published on January 15, 2024</p>
-            <p class="blog-excerpt">A brief excerpt or summary of the blog post content...</p>
-            <a href="#" class="read-more">Read More</a>
-            </div>
-            <!-- Add more blog posts as needed -->
-        </div>
+          <div class="blog-content">
+            
+              <!-- Placeholder for blog posts -->
+              <div class="blog-post">
+                <h3>{#1 - The 50/50 rule for Coding }</h3>
+                <p class="blog-date">Published on Jul 4, 2023</p>
+                <p class="blog-excerpt">This article underscores the significance of the "50/50 rule" for new coders, emphasizing the equal split of time between learning and hands-on coding. It explains the advantages, including better knowledge retention, improved problem-solving skills, and portfolio growth, while encouraging its adoption as a guiding principle for aspiring developers.</p>
+                <a href="https://www.linkedin.com/pulse/1-5050-rule-coding-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+
+              <div class="blog-post">
+                <h3>{#2 - Learning something new every week}</h3>
+                <p class="blog-date">Published on Jul 11, 2023</p>
+                <p class="blog-excerpt">This article stresses the significance of continuous learning in the ever-evolving software industry, highlighting how adopting a habit of weekly learning keeps developers current, enhances their skills, and boosts their capabilities. The author, a student at WeThinkCode, shares how their institution supports this practice through a dynamic curriculum and ample resources, encouraging readers to embrace continuous learning to excel in the fast-paced software development landscape.</p>
+                <a href="https://www.linkedin.com/pulse/2-learning-something-new-every-week-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+
+              <div class="blog-post">
+                <h3>{#3 - Writing Readable code}</h3>
+                <p class="blog-date">Published on Jul 20, 2023</p>
+                <p class="blog-excerpt">This article underscores the importance of writing readable code in software development, emphasizing its role in fostering collaboration, reducing maintenance efforts, and promoting efficient teamwork. It encourages simplicity and clean coding techniques, highlighting the long-term benefits of readable code for sustainable projects and a thriving coding ecosystem. It's a call to action for developers to prioritize clarity and transparency in their code.</p>
+                <a href="https://www.linkedin.com/pulse/3-writing-readable-code-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+
+              <div class="blog-post">
+                <h3>{#4 - Cracking the Code: Unleashing the Magic of Problem-Solving in Software Development!}</h3>
+                <p class="blog-date">Published on Aug 2, 2023</p>
+                <p class="blog-excerpt">This article explores the importance of problem-solving skills for aspiring software developers. It highlights how problem-solving simplifies complex challenges, fosters creativity, aids in debugging, promotes collaboration, sharpens decision-making, and builds resilience. The piece emphasizes that effective problem-solving sets exceptional developers apart and invites readers to embark on the journey of skill development.</p>
+                <a href="https://www.linkedin.com/pulse/4-cracking-code-unleashing-magic-problem-solving-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+
+              <div class="blog-post">
+                <h3>{#5 - Ensuring Code Excellence: The Role of Testing and Quality Assurance in Software Development}</h3>
+                <p class="blog-date">Published on Aug 18, 2023</p>
+                <p class="blog-excerpt">This article underscores the crucial role of testing and quality assurance in software development, with a focus on unit tests, integration tests, and comprehensive quality assurance. It highlights how these practices not only enhance code reliability but also boost developers' credibility, instill confidence in stakeholders, and promote a culture of improvement. The article encourages readers to embrace these practices as foundational elements of their software development journey, leading to excellence in the field.</p>
+                <a href="https://www.linkedin.com/pulse/5-ensuring-code-excellence-role-testing-quality-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+
+              <div class="blog-post">
+                <h3>Reflecting on an Enriching Experience at the Escape Tech Conference</h3>
+                <p class="blog-date">Published on Sep 16, 2023</p>
+                <p class="blog-excerpt">This article recounts the author's enriching experience at the Escape Tech Conference, emphasizing its role in connecting technologists and exploring emerging trends. The event, powered by BBD, offered insightful sessions and a dynamic networking environment. The author expresses gratitude for the valuable knowledge gained and encourages like-minded tech enthusiasts to connect and collaborate, shaping the future of technology together.</p>
+                <a href="https://www.linkedin.com/pulse/reflecting-enriching-experience-escape-tech-thapelo-magqazana/" class="read-more">Read More</a>
+              </div>
+              <!-- Add more blog posts as needed -->
+          </div>
         </div>
     </section>
     <!-- contact section -->
@@ -190,7 +235,7 @@
           <!-- Add a div for reCAPTCHA widget -->
           <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
       
-          <button type="submit">Send Message</button>
+          <button type="submit" class="send">Send Message</button>
         </form>
       </div>
     </section>
@@ -208,14 +253,5 @@
   <!-- Include your JavaScript file -->
   <script src="script.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script>
-    const darkmode = new Darkmode({
-      label: '🌓', // Emoji or text to display in the widget
-      time: '0.5s', // Transition duration in seconds
-      saveInCookies: true, // Save user's preference in cookies
-      autoMatchOsTheme: true, // Automatically match OS theme if supported
-    });
-    darkmode.showWidget();
-  </script>
 </body>
 </html>

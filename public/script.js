@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Make an AJAX request
-        fetch('http://localhost:3000/send-email', {
+        fetch('http://localhost:6662/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,3 +44,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
     });
 });
+
+// Check for user's dark mode preference in local storage
+const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+// Set initial dark mode state
+if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    document.getElementById('darkModeToggle').checked = true;
+}
+
+// Toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.toggle('dark-mode');
+
+    // Save user's dark mode preference in local storage
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+}
+
+// {/* <nav class="fixed-nav">
+//       <a href="#intro">Intro</a>
+//       <a href="#about">About</a>
+//       <a href="#projects">Projects</a>
+//       <a href="#skills">Skills</a>
+//       <a href="#blog">Blog</a>
+//       <a href="#contact">Contact</a>
+//     </nav> */}
