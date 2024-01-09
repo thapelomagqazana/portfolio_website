@@ -540,6 +540,22 @@ header {
     justify-content: space-between;
     margin-top: 30px;
   }
+
+  .contact-form {
+    position: relative; /* Ensure relative positioning for absolute child */
+  }
+
+  #confirmation-message {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #4CAF50;
+    background-color: #dff0d8;
+    color: #4CAF50;
+    display: none; /* Hide the message initially */
+  }
   
   .contact-form label {
     flex-basis: 48%;
