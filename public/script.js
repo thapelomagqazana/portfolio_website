@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Make an AJAX request
-        fetch('http://localhost:6662/send-email', {
+        fetch('https://portfoliowebsite-production-74a1.up.railway.app/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
