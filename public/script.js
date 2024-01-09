@@ -1,38 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Capture the inputs
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        // Create an object with the captured data
-        const formData = {
-            name: name,
-            email: email,
-            message: message
-        };
-
-        // Make an AJAX request
-        fetch('https://portfoliowebsite-production-74a1.up.railway.app/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-                // You can add further actions based on the server response
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Handle errors if any
-            });
-    });
-});
+function submitForm() {
+    // Display a loading message
+    document.getElementById('confirmation-message').innerHTML = 'Sending...';
+  
+    // Capture the inputs
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+  
+    // Create an object with the captured data
+    const formData = {
+      name: name,
+      email: email,
+      message: message
+    };
+  
+    // Make an AJAX request
+    fetch('https://portfoliowebsite-production-74a1.up.railway.app/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.text())
+      .then(data => {
+        // Display confirmation message
+        document.getElementById('confirmation-message').innerHTML = data;
+  
+        // Clear the form after a delay
+        setTimeout(function() {
+          document.getElementById('contactForm').reset();
+          document.getElementById('confirmation-message').innerHTML = ''; // Clear the confirmation message
+        }, 2000); // Set the delay in milliseconds
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors if any
+        document.getElementById('confirmation-message').innerHTML = 'Error occurred. Please try again later.';
+      });
+}
 
 // Optional smooth scrolling for browsers that don't support "scroll-behavior: smooth"
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
