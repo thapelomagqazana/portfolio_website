@@ -61,7 +61,7 @@ body {
 }
 /* Adjust the main content to give space for the fixed nav */
 main {
-  margin-top: 60px; /* Combined height of header (50px) and nav (28px) */
+  margin-top: 200px; /* Combined height of header (50px) and nav (28px) */
 }
 #projects1 {
     padding: 0;
@@ -164,27 +164,21 @@ header {
 /* Hero section styles */
 #hero {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#hero video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background: url('images/pexels-olia-danilevich-4974920.jpg') center/cover no-repeat;
+  height: 100vh; /* Set the desired height of the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Set the text color for better visibility */
 }
 
 .hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
-  z-index: 1;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 #hero h1 {
@@ -840,8 +834,13 @@ cite {
   color: #fff; 
 }
 
+.dark-mode #hero h2 {
+  opacity: 0.8;
+}
+
 .dark-mode header,
-.dark-mode footer{
+.dark-mode footer,
+.dark-mode #hero h2{
   background-color: #5E5E5E; /* Dark header background color */
   color: #121212;
 }
@@ -962,6 +961,10 @@ cite {
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
 }
 
+
+.dark-mode #hero{
+  background-image: url("images/pexels-pixabay-2156.jpg");
+}
 .dark-mode .parallax-bg{
   background-image: url("images/pexels-kevin-ku-577585.jpg");
 }
