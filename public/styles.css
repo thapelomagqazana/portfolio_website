@@ -9,6 +9,11 @@ body, #projects1{
   /* font-size: 16px; */
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default body padding */
@@ -23,6 +28,7 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000; /* Ensure the header is above other elements */
+  /* height: auto; */
 }
 
 /* Add these styles for navigation */
@@ -76,7 +82,7 @@ header {
   }
   
   .header-container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -170,6 +176,7 @@ header {
   justify-content: center;
   align-items: center;
   color: #fff; /* Set the text color for better visibility */
+  padding: 50px 0;
 }
 
 .hero-content {
@@ -216,7 +223,7 @@ header {
   /* Intro section styles */
 #intro {
     background-color: #f8f8f8;
-    padding: 80px 0;
+    padding: 50px 0;
   }
   
   .intro-content {
@@ -335,6 +342,7 @@ header {
     opacity: 0; /* Start with 0 opacity */
     transform: translateY(20px); /* Move the cards down by 20px */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition properties */
+    flex-direction: column;
   }
   
   .project-card:hover {
@@ -742,9 +750,11 @@ cite {
 
 /* Media Queries */
 
-/* Tablets and Small Screens */
+/* Media Queries for Tablets and Small Screens */
 @media only screen and (max-width: 768px) {
-  /* Adjust styles for screens up to 768px wide */
+  body {
+    font-size: 14px;
+  }
 
   .navbar li {
     margin: 0 10px;
@@ -761,12 +771,10 @@ cite {
   /* Add more specific styles as needed for smaller screens */
 }
 
-/* Mobile Smartphones */
+/* Media Queries for Mobile Smartphones */
 @media only screen and (max-width: 480px) {
-  /* Adjust styles for screens up to 480px wide (typical mobile smartphones) */
-
   body {
-    font-size: 14px; /* Adjust the base font size for better readability */
+    font-size: 14px;
   }
 
   .navbar {
@@ -778,7 +786,7 @@ cite {
   }
 
   .navbar a {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   h1 {
@@ -822,6 +830,67 @@ cite {
   }
 
   /* Add more specific styles as needed for mobile screens */
+}
+
+/* Media Queries for Small Mobile Screens (e.g., Huawei P9) */
+@media only screen and (max-width: 360px) {
+  body {
+    font-size: 12px;
+  }
+
+  .navbar {
+    padding: 5px 0;
+  }
+
+  .navbar li {
+    margin: 0 5px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .intro-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-text p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .blog-post h3 {
+    font-size: 16px;
+  }
+
+  .blog-date {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .blog-excerpt {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  /* Add more specific styles as needed for small mobile screens */
 }
 
 /* Dark mode styles */
