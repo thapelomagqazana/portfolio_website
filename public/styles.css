@@ -320,12 +320,12 @@ header {
     color: #343a40; /* Dark text color */
   }
 
-  .heading {
+  /* .heading {
     text-align: center;
     margin-bottom: 60px;
     font-size: 2.5em;
     color: #343a40; 
-  }
+  } */
   
   .container {
     max-width: 1200px;
@@ -427,6 +427,50 @@ header {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
   }
 
+ /* toggle styles */
+  .toggle-section {
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    max-width: 1200px;
+    /* margin: 0 auto; */
+  }
+
+  /* .toggle-section h2 {
+    text-align: center;
+  } */
+  
+  .toggle-header{
+
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    font-size: 2em;
+  }
+  
+  .toggle-content {
+    padding: 10px;
+    height: 0; /* Set initial height to 0 */
+    overflow: hidden;
+  }
+  
+  /* Style for the arrow */
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate the arrow when the section is open */
+  .toggle-section.open .arrow {
+    transform: rotate(180deg);
+  }
+
   /* skills section styles */
 #skills {
     background-color: #fff; /* White background color */
@@ -518,6 +562,7 @@ header {
     padding: 80px 0; /* Adjust padding as needed */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin: 10px;
+    border: 2px solid #ddd;
   }
   
   .contact-container {
@@ -913,6 +958,8 @@ cite {
   /* Add more specific styles as needed for small mobile screens */
 }
 
+
+
 /* Dark mode styles */
 .dark-mode,
 .dark-mode .blog-post a:hover,
@@ -1035,7 +1082,8 @@ cite {
 .dark-mode .blog-post a,
 .dark-mode .contact-form button,
 .dark-mode .download-button,
-.dark-mode .back{
+.dark-mode .back,
+.dark-mode .toggle-header{
   background-color: #ff7e1a;
   color: #121212;
   font-weight: bold;
@@ -1046,7 +1094,8 @@ cite {
 .dark-mode .blog-post a:hover,
 .dark-mode #contact,
 .dark-mode #project-content a:hover,
-.dark-mode #contact button:hover{
+.dark-mode #contact button:hover,
+.dark-mode .toggle-section{
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
 }
 

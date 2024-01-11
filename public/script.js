@@ -68,3 +68,20 @@ function toggleDarkMode() {
     // Save user's dark mode preference in local storage
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('.toggle-section');
+
+  sections.forEach(section => {
+    const header = section.querySelector('.toggle-header');
+    const content = section.querySelector('.toggle-content');
+
+    header.addEventListener('click', () => {
+      section.classList.toggle('open');
+      const maxHeight = section.classList.contains('open') ? content.scrollHeight + 'px' : '0';
+      content.style.transition = 'height 0.3s ease';
+      content.style.height = maxHeight;
+    });
+  });
+});
