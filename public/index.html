@@ -1,323 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Include meta tags, title, and other necessary head elements -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Developer Portfolio</title>
-  <!-- Include your CSS file -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.0.1/darkmode-js.min.js" integrity="sha512-ymWtnAHkpz3iFpi6C3iIVQmPiGq1CiTTPLjR7hMKWADXx+CSwyARyJlyCcQRH5VRGpYkwwLzTW4bgkqtRmNk9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <head>
+    <!-- Include meta tags, title, and other necessary head elements -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thapelo Magqazana's Portfolio</title>
+    <!-- Include your CSS file -->
+    <link rel="stylesheet" href="styles3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPRETX1BHR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-    gtag('config', 'G-HPRETX1BHR');
-  </script>
-</head>
-<body>
-  <header class="fixed-header">
-    <div class="header-container">
-        <h1>Thapelo</h1>
-        <p class="tagline">Software Developer</p>
-        <div class="toggle-container">
-          <label class="switch">
-            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-            <span class="slider round"></span>
-          </label>
-          <label for="darkModeToggle">Dark Mode</label>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.0.1/darkmode-js.min.js"
+      integrity="sha512-ymWtnAHkpz3iFpi6C3iIVQmPiGq1CiTTPLjR7hMKWADXx+CSwyARyJlyCcQRH5VRGpYkwwLzTW4bgkqtRmNk9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HPRETX1BHR"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HPRETX1BHR");
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- Simplified monogram logo -->
+        <div class="logo">
+          <h1>TM</h1>
+          <!-- Replace with a monogram like 'TM' -->
         </div>
-        <div class="cta-container">
-          <a href="docs/Thapelo_Magqazana_CV.pdf" download="Thapelo_Magqazana_Resume.pdf" class="download-button">Download Resume</a>
-        </div>
-        
-        
-    </div>
-    <!-- Add the navigation bar -->
-    <nav class="navbar">
-      <ul>
-        <li><a href="#hero"><i class="fas fa-home"></i></a></li>
-        <li><a href="#intro"><i class="fas fa-info-circle"></i></a></li>
-        <li><a href="#projects"><i class="fas fa-laptop-code"></i></a></li>
-        <li><a href="#skills"><i class="fas fa-cogs"></i></a></li>
-        <li><a href="#blog"><i class="fas fa-blog"></i></a></li>
-        <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
-      </ul>
-    </nav>
-    
-  </header>
 
-  
- 
-  <main>
-    <section id="hero">
-      <div class="hero-content">
-        <h2>Passionate about Creating Digital Experiences</h2>
-        <a href="#projects">View Projects</a>
-      </div>
-    </section>
-    <!-- <section id="hero">
-      <video autoplay muted loop playsinline>
-        <source src="clips/pexels.mp4" type="video/mp4"> -->
-        <!-- Your browser does not support the video tag.
-      </video>
-      <div class="hero-content">
-        <h2>Passionate about Creating Digital Experiences</h2>
-        <a href="#projects">View Projects</a>
-      </div>
-    </section> -->
-    <section id="intro">
+        <!-- Hamburger Icon for Mobile -->
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links" id="navLinks">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- Dark/Light mode toggle button -->
+            <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="hero-content">
+          <h2 class="headline-typewriter">
+            Creating Seamless Digital Experiences
+          </h2>
+          <p class="tagline">
+            Full-Stack Developer | JavaScript Expert | Problem Solver
+          </p>
+          <a href="#projects" class="cta-button">View Projects</a>
+        </div>
+
+        <div class="hero-image">
+          <img src="images/undraw_engineering_team_a7n2.svg" alt="Thapelo" />
+        </div>
+      </section>
+
+      <section id="intro">
         <div class="intro-content">
           <div class="intro-text">
             <h2>Hello, I'm <span>Thapelo Magqazana</span></h2>
-            <p><span id="a">Passionate. </span><span id="b">Innovative. </span><span id="c">Craftsmanship.</span></p>
+            <p>
+              <span id="a">Passionate. </span><span id="b">Innovative. </span
+              ><span id="c">Craftsmanship.</span>
+            </p>
             <p>Let's explore the world of coding together!</p>
           </div>
-          <div class="intro-image">
-            <img src="images/thmagqa022.jpg" alt="Thapelo">
+          <!-- <div class="intro-image">
+            <img src="images/thmagqa022.jpg" alt="Thapelo" />
+          </div> -->
+        </div>
+      </section>
+      <!-- About Section -->
+      <section id="about">
+        <div class="toggle-section">
+          <div class="toggle-header" data-target="about-content">
+            <h2 class="heading">About Me</h2>
+            <span class="arrow">&#9660;</span>
+          </div>
+          <div class="toggle-content" id="about-content">
+            <div class="about-content">
+              <div class="about-text">
+                <p>
+                  Johannesburg-based software alchemist, weaving intricate tech
+                  problems into elegant, intuitive solutions.
+                </p>
+                <p>
+                  I thrive on turning code into magic, obsessed with optimizing,
+                  exceeding expectations, and leaving a trail of future-proofed
+                  software in my wake.
+                </p>
+                <p>
+                  Join me on a quest to reimagine tech, where passion fuels
+                  innovation and every line of code is a brushstroke on the
+                  canvas of tomorrow. ✨
+                </p>
+                <p>
+                  Ready to create something extraordinary? Let's explore the
+                  possibilities.
+                </p>
+              </div>
+              <div class="about-image">
+                <img
+                  src="images/333Thapelo Magqazana  thmagqa022.jpg"
+                  alt="Thapelo"
+                />
+              </div>
+            </div>
           </div>
         </div>
-    </section>
-    <section id="about">
-      <div class="toggle-section">
-        <div class="toggle-header">
-          <h2 class="heading">About Me</h2> <span class="arrow">&#9660;</span>
-        </div>
-        <div class="toggle-content">
-          <div class="about-content">
-            <div class="about-text">
-              <p>Johannesburg-based software alchemist, weaving intricate tech problems into elegant, intuitive solutions. </p>
-              <p>I thrive on turning code into magic, obsessed with optimizing, exceeding expectations, and leaving a trail of future-proofed software in my wake.</p>
-              <p>Join me on a quest to reimagine tech, where passion fuels innovation and every line of code is a brushstroke on the canvas of tomorrow. ✨</p>
-              <p>Ready to create something extraordinary? Let's explore the possibilities.</p>
-            </div>
-            <div class="about-image">
-              <img src="images/333Thapelo Magqazana  thmagqa022.jpg" alt="Thapelo">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Projects section -->
-    <section id="projects">
-      <div class="toggle-section">
-        <div class="toggle-header">
-          <h2 class="heading">Featured Projects</h2> <span class="arrow">&#9660;</span>
-        </div>
-        <div class="toggle-content">
+      <!-- Projects section -->
+      <section id="projects">
+        <div class="toggle-section">
+          <div class="toggle-header" data-target="projects-content">
+            <h2 class="heading">Featured Projects</h2>
+            <span class="arrow">&#9660;</span>
+          </div>
+          <div class="toggle-content" id="projects-content">
             <!-- Project cards -->
-          <div class="project-card">
-            <div class="project-image">
-            <img src="images/cashflow_manager.png" alt="CashFlow Manager">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">CashFlow Manager</h3>
-              <p class="project-description">This app simplifies financial management by tracking and organizing user transactions with an intuitive interface.</p>
-              <a href="https://cashflow-manger.netlify.app/" class="project-link" target="_blank">View Project</a>
-              <a href="https://github.com/thapelomagqazana/budget_tracker" class="source-code-link" target="_blank">View Source Code and Docs</a>
-              <!-- <a href="projects/cashflow_details.html" class="docs-link" target="_blank">Read Documentation</a> -->
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img src="images/siyabhanga_backend.png" alt="Siyabhanga_Backend">
-              <div class="project-content">
-                <h3 class="project-title">Siyabhanga_API</h3>
-                <p class="project-description">Siyabhanga Backend: Empowering online banking experiences through a secure, scalable, and user-centric Node.js-powered server.</p>
-                <!-- <a href="https://cashflow-manger.netlify.app/" class="project-link" target="_blank">View Project</a> -->
-                <a href="https://github.com/thapelomagqazana/online-banking-api" class="source-code-link" target="_blank">View Source Code and Docs</a>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/cashflow_manager.png" alt="CashFlow Manager" />
               </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img src="images/siyabhanga_landing_page.png" alt="Siyabhanga">
               <div class="project-content">
-                <h3 class="project-title">Siyabhanga Online Banking Platform</h3>
-                <p class="project-description">A React-based online banking application for secure, user-friendly financial management.</p>
-                <a href="https://curious-mochi-63c883.netlify.app/" class="project-link" target="_blank">View Project</a>
-                <a href="https://github.com/thapelomagqazana/online-banking-frontend" class="source-code-link" target="_blank">View Source Code and Docs</a>
+                <h3 class="project-title">CashFlow Manager</h3>
+                <p class="project-description">
+                  This app simplifies financial management by tracking and
+                  organizing user transactions with an intuitive interface.
+                </p>
+                <a
+                  href="https://cashflow-manger.netlify.app/"
+                  class="project-link"
+                  target="_blank"
+                  >View Project</a
+                >
+                <a
+                  href="https://github.com/thapelomagqazana/budget_tracker"
+                  class="source-code-link"
+                  target="_blank"
+                  >View Source Code and Docs</a
+                >
+                <!-- <a href="projects/cashflow_details.html" class="docs-link" target="_blank">Read Documentation</a> -->
               </div>
-          </div>
+            </div>
 
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="images/siyabhanga_backend.png"
+                  alt="Siyabhanga_Backend"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">Siyabhanga_API</h3>
+                  <p class="project-description">
+                    Siyabhanga Backend: Empowering online banking experiences
+                    through a secure, scalable, and user-centric Node.js-powered
+                    server.
+                  </p>
+                  <!-- <a href="https://cashflow-manger.netlify.app/" class="project-link" target="_blank">View Project</a> -->
+                  <a
+                    href="https://github.com/thapelomagqazana/online-banking-api"
+                    class="source-code-link"
+                    target="_blank"
+                    >View Source Code and Docs</a
+                  >
+                </div>
+              </div>
+            </div>
 
-          </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="images/siyabhanga_landing_page.png"
+                  alt="Siyabhanga"
+                />
+                <div class="project-content">
+                  <h3 class="project-title">
+                    Siyabhanga Online Banking Platform
+                  </h3>
+                  <p class="project-description">
+                    A React-based online banking application for secure,
+                    user-friendly financial management.
+                  </p>
+                  <a
+                    href="https://curious-mochi-63c883.netlify.app/"
+                    class="project-link"
+                    target="_blank"
+                    >View Project</a
+                  >
+                  <a
+                    href="https://github.com/thapelomagqazana/online-banking-frontend"
+                    class="source-code-link"
+                    target="_blank"
+                    >View Source Code and Docs</a
+                  >
+                </div>
+              </div>
+            </div>
 
-
-
-          <!-- Indicate that more projects are coming -->
-          <div class="more-projects-coming">
-            <p>Hover or tab the blank</p>
-            <p>MORE PROJECTS COMING SOON!😎</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    
-    <!-- Parallax Section -->
-    <section id="parallax-section">
-      <div class="parallax-bg"></div>
-      <div class="parallax-content">
-        <blockquote>
-          “Everyone should learn how to program a computer because it teaches you how to think.” 
-          <cite>- Steve Jobs</cite>
-      </blockquote>  
-      </div>
-  </section>
-
-  <section id="skills">
-    <div class="toggle-section">
-      <div class="toggle-header">
-        <h2 class="heading">Skills</h2> <span class="arrow">&#9660;</span>
-      </div>
-      <div class="toggle-content">
-        <div class="skills-content">
-          <div class="skills-category">
-            <h3>Programming Languages</h3>
-            <ul>
-              <li>JavaScript</li>
-              <li>Python</li>
-              <li>Java</li>
-              <li>HTML</li>
-              <li>SQL</li>
-              <!-- Add more languages as needed -->
-            </ul>
-          </div>
-          <div class="skills-category">
-            <h3>Frameworks</h3>
-            <ul>
-              <li>Node.js</li>
-              <li>Django</li>
-              <li>JUnit</li>
-              <li>Jest</li>
-              <li>Pytest</li>
-              <!-- Add more frameworks as needed -->
-            </ul>
-          </div>
-          <div class="skills-category">
-            <h3>Other Skills</h3>
-            <ul>
-              <li>Git</li>
-              <li>APIs</li>
-              <li>DevOps practices</li>
-              <li>Client-server architecture</li>
-              <li>Network Programming</li>
-              <li>Automated testing</li>
-              <li>Collaboration and teamwork</li>
-              <!-- Add more skills as needed -->
-            </ul>
+            <!-- Indicate that more projects are coming -->
+            <div class="more-projects-coming">
+              <p>Hover or tab the blank</p>
+              <p>MORE PROJECTS COMING SOON!😎</p>
+            </div>
           </div>
         </div>
-      </div> 
-    </div>
-  </section>
+      </section>
 
-
-  <section id="blog">
-    <div class="toggle-section">
-      <div class="toggle-header">
-        <h2 class="heading">Blog</h2> <span class="arrow">&#9660;</span>
-      </div>
-      <div class="toggle-content">
-        <div class="blog-content">
-            
-          <!-- Placeholder for blog posts -->
-          <div class="blog-post">
-            <h3>{#1 - The 50/50 rule for Coding }</h3>
-            <p class="blog-date">Published on Jul 4, 2023</p>
-            <p class="blog-excerpt">This article underscores the significance of the "50/50 rule" for new coders, emphasizing the equal split of time between learning and hands-on coding. It explains the advantages, including better knowledge retention, improved problem-solving skills, and portfolio growth, while encouraging its adoption as a guiding principle for aspiring developers.</p>
-            <a href="https://www.linkedin.com/pulse/1-5050-rule-coding-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-
-          <div class="blog-post">
-            <h3>{#2 - Learning something new every week}</h3>
-            <p class="blog-date">Published on Jul 11, 2023</p>
-            <p class="blog-excerpt">This article stresses the significance of continuous learning in the ever-evolving software industry, highlighting how adopting a habit of weekly learning keeps developers current, enhances their skills, and boosts their capabilities. The author, a student at WeThinkCode, shares how their institution supports this practice through a dynamic curriculum and ample resources, encouraging readers to embrace continuous learning to excel in the fast-paced software development landscape.</p>
-            <a href="https://www.linkedin.com/pulse/2-learning-something-new-every-week-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-
-          <div class="blog-post">
-            <h3>{#3 - Writing Readable code}</h3>
-            <p class="blog-date">Published on Jul 20, 2023</p>
-            <p class="blog-excerpt">This article underscores the importance of writing readable code in software development, emphasizing its role in fostering collaboration, reducing maintenance efforts, and promoting efficient teamwork. It encourages simplicity and clean coding techniques, highlighting the long-term benefits of readable code for sustainable projects and a thriving coding ecosystem. It's a call to action for developers to prioritize clarity and transparency in their code.</p>
-            <a href="https://www.linkedin.com/pulse/3-writing-readable-code-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-
-          <div class="blog-post">
-            <h3>{#4 - Cracking the Code: Unleashing the Magic of Problem-Solving in Software Development!}</h3>
-            <p class="blog-date">Published on Aug 2, 2023</p>
-            <p class="blog-excerpt">This article explores the importance of problem-solving skills for aspiring software developers. It highlights how problem-solving simplifies complex challenges, fosters creativity, aids in debugging, promotes collaboration, sharpens decision-making, and builds resilience. The piece emphasizes that effective problem-solving sets exceptional developers apart and invites readers to embark on the journey of skill development.</p>
-            <a href="https://www.linkedin.com/pulse/4-cracking-code-unleashing-magic-problem-solving-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-
-          <div class="blog-post">
-            <h3>{#5 - Ensuring Code Excellence: The Role of Testing and Quality Assurance in Software Development}</h3>
-            <p class="blog-date">Published on Aug 18, 2023</p>
-            <p class="blog-excerpt">This article underscores the crucial role of testing and quality assurance in software development, with a focus on unit tests, integration tests, and comprehensive quality assurance. It highlights how these practices not only enhance code reliability but also boost developers' credibility, instill confidence in stakeholders, and promote a culture of improvement. The article encourages readers to embrace these practices as foundational elements of their software development journey, leading to excellence in the field.</p>
-            <a href="https://www.linkedin.com/pulse/5-ensuring-code-excellence-role-testing-quality-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-
-          <div class="blog-post">
-            <h3>Reflecting on an Enriching Experience at the Escape Tech Conference</h3>
-            <p class="blog-date">Published on Sep 16, 2023</p>
-            <p class="blog-excerpt">This article recounts the author's enriching experience at the Escape Tech Conference, emphasizing its role in connecting technologists and exploring emerging trends. The event, powered by BBD, offered insightful sessions and a dynamic networking environment. The author expresses gratitude for the valuable knowledge gained and encourages like-minded tech enthusiasts to connect and collaborate, shaping the future of technology together.</p>
-            <a href="https://www.linkedin.com/pulse/reflecting-enriching-experience-escape-tech-thapelo-magqazana/" class="read-more">Read More</a>
-          </div>
-          <!-- Add more blog posts as needed -->
+      <!-- Parallax Section -->
+      <section id="parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="parallax-content">
+          <blockquote>
+            “Everyone should learn how to program a computer because it teaches
+            you how to think.”
+            <cite>- Steve Jobs</cite>
+          </blockquote>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-    <!-- contact section -->
-    <section id="contact">
-      <div class="contact-container">
-        <h2 class="contact-heading">Get in Touch</h2>
-        <form class="contact-form" action="/send-email" method="POST" id="contactForm">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
-      
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required>
-      
-          <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+      <section id="skills">
+        <div class="toggle-section">
+          <div class="toggle-header">
+            <h2 class="heading">Skills</h2>
+            <span class="arrow">&#9660;</span>
+          </div>
+          <div class="toggle-content">
+            <div class="skills-content">
+              <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <ul>
+                  <li>JavaScript</li>
+                  <li>Python</li>
+                  <li>Java</li>
+                  <li>HTML</li>
+                  <li>SQL</li>
+                  <li>NoSQL</li>
+                  <!-- Add more languages as needed -->
+                </ul>
+              </div>
+              <div class="skills-category">
+                <h3>Frameworks</h3>
+                <ul>
+                  <li>Node.js</li>
+                  <li>React</li>
+                  <li>Django</li>
+                  <li>JUnit</li>
+                  <li>Jest</li>
+                  <li>Pytest</li>
+                  <!-- Add more frameworks as needed -->
+                </ul>
+              </div>
+              <div class="skills-category">
+                <h3>Other Skills</h3>
+                <ul>
+                  <li>Git</li>
+                  <li>APIs</li>
+                  <li>DevOps practices</li>
+                  <li>Client-server architecture</li>
+                  <li>Network Programming</li>
+                  <li>Software testing</li>
+                  <li>Collaboration and teamwork</li>
+                  <!-- Add more skills as needed -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <!-- Add a div for reCAPTCHA widget -->
-          <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
-      
-          <button type="submit" class="send" onclick="submitForm()">Send Message</button>
-          <!-- Add an empty div for displaying the confirmation message --> 
-          <div id="confirmation-message"></div>
+      <section id="blog">
+        <div class="toggle-section">
+          <div class="toggle-header">
+            <h2 class="heading">Blog</h2>
+            <span class="arrow">&#9660;</span>
+          </div>
+          <div class="toggle-content">
+            <div class="blog-content">
+              <!-- Placeholder for blog posts -->
+              <div class="blog-post">
+                <h3>{#1 - The 50/50 rule for Coding }</h3>
+                <p class="blog-date">Published on Jul 4, 2023</p>
+                <p class="blog-excerpt">
+                  This article underscores the significance of the "50/50 rule"
+                  for new coders, emphasizing the equal split of time between
+                  learning and hands-on coding. It explains the advantages,
+                  including better knowledge retention, improved problem-solving
+                  skills, and portfolio growth, while encouraging its adoption
+                  as a guiding principle for aspiring developers.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/1-5050-rule-coding-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
 
-        </form>
-      </div>
-    </section>
-  </main>
-  <!-- footer -->
+              <div class="blog-post">
+                <h3>{#2 - Learning something new every week}</h3>
+                <p class="blog-date">Published on Jul 11, 2023</p>
+                <p class="blog-excerpt">
+                  This article stresses the significance of continuous learning
+                  in the ever-evolving software industry, highlighting how
+                  adopting a habit of weekly learning keeps developers current,
+                  enhances their skills, and boosts their capabilities. The
+                  author, a student at WeThinkCode, shares how their institution
+                  supports this practice through a dynamic curriculum and ample
+                  resources, encouraging readers to embrace continuous learning
+                  to excel in the fast-paced software development landscape.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/2-learning-something-new-every-week-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
+
+              <div class="blog-post">
+                <h3>{#3 - Writing Readable code}</h3>
+                <p class="blog-date">Published on Jul 20, 2023</p>
+                <p class="blog-excerpt">
+                  This article underscores the importance of writing readable
+                  code in software development, emphasizing its role in
+                  fostering collaboration, reducing maintenance efforts, and
+                  promoting efficient teamwork. It encourages simplicity and
+                  clean coding techniques, highlighting the long-term benefits
+                  of readable code for sustainable projects and a thriving
+                  coding ecosystem. It's a call to action for developers to
+                  prioritize clarity and transparency in their code.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/3-writing-readable-code-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
+
+              <div class="blog-post">
+                <h3>
+                  {#4 - Cracking the Code: Unleashing the Magic of
+                  Problem-Solving in Software Development!}
+                </h3>
+                <p class="blog-date">Published on Aug 2, 2023</p>
+                <p class="blog-excerpt">
+                  This article explores the importance of problem-solving skills
+                  for aspiring software developers. It highlights how
+                  problem-solving simplifies complex challenges, fosters
+                  creativity, aids in debugging, promotes collaboration,
+                  sharpens decision-making, and builds resilience. The piece
+                  emphasizes that effective problem-solving sets exceptional
+                  developers apart and invites readers to embark on the journey
+                  of skill development.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/4-cracking-code-unleashing-magic-problem-solving-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
+
+              <div class="blog-post">
+                <h3>
+                  {#5 - Ensuring Code Excellence: The Role of Testing and
+                  Quality Assurance in Software Development}
+                </h3>
+                <p class="blog-date">Published on Aug 18, 2023</p>
+                <p class="blog-excerpt">
+                  This article underscores the crucial role of testing and
+                  quality assurance in software development, with a focus on
+                  unit tests, integration tests, and comprehensive quality
+                  assurance. It highlights how these practices not only enhance
+                  code reliability but also boost developers' credibility,
+                  instill confidence in stakeholders, and promote a culture of
+                  improvement. The article encourages readers to embrace these
+                  practices as foundational elements of their software
+                  development journey, leading to excellence in the field.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/5-ensuring-code-excellence-role-testing-quality-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
+
+              <div class="blog-post">
+                <h3>
+                  Reflecting on an Enriching Experience at the Escape Tech
+                  Conference
+                </h3>
+                <p class="blog-date">Published on Sep 16, 2023</p>
+                <p class="blog-excerpt">
+                  This article recounts the author's enriching experience at the
+                  Escape Tech Conference, emphasizing its role in connecting
+                  technologists and exploring emerging trends. The event,
+                  powered by BBD, offered insightful sessions and a dynamic
+                  networking environment. The author expresses gratitude for the
+                  valuable knowledge gained and encourages like-minded tech
+                  enthusiasts to connect and collaborate, shaping the future of
+                  technology together.
+                </p>
+                <a
+                  href="https://www.linkedin.com/pulse/reflecting-enriching-experience-escape-tech-thapelo-magqazana/"
+                  class="read-more"
+                  >Read More</a
+                >
+              </div>
+              <!-- Add more blog posts as needed -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- contact section -->
+      <section id="contact">
+        <div class="contact-container">
+          <h2 class="contact-heading">Get in Touch</h2>
+          <form
+            class="contact-form"
+            action="/send-email"
+            method="POST"
+            id="contactForm"
+          >
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <!-- Add a div for reCAPTCHA widget -->
+            <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
+
+            <button type="submit" class="send" onclick="submitForm()">
+              Send Message
+            </button>
+            <!-- Add an empty div for displaying the confirmation message -->
+            <div id="confirmation-message"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
     <footer>
-        <div class="container">
+      <div class="container">
         <p>&copy; 2024 Thapelo Magqazana. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/thapelo-magqazana-90632a174/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/thapelomagqazana" target="_blank"><i class="fab fa-github"></i></a>
+          <a
+            href="https://www.linkedin.com/in/thapelo-magqazana-90632a174/"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/thapelomagqazana" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
         </div>
-        </div>
+      </div>
     </footer>
-  <!-- Include your JavaScript file -->
-  <script src="script.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</body>
+    <!-- Include your JavaScript file -->
+    <script src="script1.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </body>
 </html>

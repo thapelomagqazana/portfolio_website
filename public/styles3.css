@@ -1,0 +1,327 @@
+/* Centered monogram style */
+.logo {
+  text-align: center;
+  font-family: "Monoton", cursive;
+  font-size: 3rem;
+  color: #007bff;
+  letter-spacing: 0.15rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logo h1:hover {
+  color: #00c6ff;
+}
+
+/* Hamburger icon animation */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger.open {
+  transform: rotate(90deg); /* Rotate on click */
+}
+
+/* Navigation links hover effect */
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  margin: 0 20px;
+}
+
+.nav-links ul li a {
+  color: #333;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+  color: #00c6ff;
+}
+
+.nav-links ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #00c6ff;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.4s ease;
+}
+
+.nav-links ul li a:hover::after {
+  width: 100%;
+}
+
+/* Sticky navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 15px 0;
+  transition: top 0.3s ease;
+}
+
+/* Dark/Light mode toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  transition: background 1s ease-in-out;
+  padding: 0 30px;
+}
+
+/* Typewriter animation for the headline */
+.headline-typewriter {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+/* Tagline styling */
+.tagline {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #f0f0f0;
+  font-style: italic;
+  letter-spacing: 0.05rem;
+}
+
+/* CTA Button Styles */
+.cta-button {
+  background-color: #00c6ff;
+  color: white;
+  font-size: 1.3rem;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 25px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+}
+
+.cta-button:active {
+  transform: scale(1);
+}
+
+/* Pulse animation for the CTA button */
+.cta-button:hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Changing gradient based on time of day */
+@media (prefers-color-scheme: dark) {
+  #hero {
+    background: linear-gradient(to right, #1a1a1a, #333); /* Darker theme */
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.hero-image {
+  display: none;
+}
+
+/* Responsive Design and Adaptive Design */
+/* Large devices (desktops) */
+@media (min-width: 991px) {
+  /* Hero section content alignment */
+  #hero {
+    justify-content: space-between;
+  }
+  .hero-image {
+    display: block;
+    width: 40%; /* Adjust width for large screens */
+  }
+
+  .headline-typewriter {
+    font-size: 3.5rem;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    font-size: 1.4rem;
+    padding: 20px 50px;
+  }
+
+  .nav-links ul li a {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 576px) and (max-width: 991px) {
+  /* Adjust hero section and font sizes for tablets */
+  #hero {
+    justify-content: center;
+    padding: 0 40px;
+  }
+
+  .hero-image {
+    display: block;
+    width: 35%; /* Smaller image on medium screens */
+  }
+
+  .headline-typewriter {
+    font-size: 2.8rem;
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+  }
+
+  .cta-button {
+    font-size: 1.2rem;
+    padding: 15px 35px;
+  }
+
+  .nav-links ul li a {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 576px) {
+  #hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-image {
+    display: none; /* Hide image on small screens */
+  }
+
+  .headline-typewriter {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 25px;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+  }
+
+  .nav-links ul li {
+    margin: 10px 0;
+  }
+
+  .nav-links ul li a {
+    font-size: 1.1rem;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}
