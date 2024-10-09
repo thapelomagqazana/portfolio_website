@@ -157,3 +157,58 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects(); // Initial render
   handlePagination(); // Handle pagination clicks
 });
+
+// Parallax Effect
+window.addEventListener("scroll", function () {
+  const layers = document.querySelectorAll(".parallax-layer");
+  const scrollY = window.scrollY;
+
+  layers.forEach((layer) => {
+    const depth = layer.getAttribute("data-depth");
+    const movement = -(scrollY * depth);
+    layer.style.transform = `translateY(${movement}px)`;
+  });
+});
+
+// Interactive Quotes
+const quotes = [
+  {
+    text: "“Everyone should learn how to program a computer because it teaches you how to think.”",
+    cite: "- Steve Jobs",
+  },
+  {
+    text: "“The best way to predict the future is to invent it.”",
+    cite: "- Alan Kay",
+  },
+  {
+    text: "“First, solve the problem. Then, write the code.”",
+    cite: "- John Johnson",
+  },
+  {
+    text: "“Code is like humor. When you have to explain it, it’s bad.”",
+    cite: "- Cory House",
+  },
+];
+
+let currentQuoteIndex = 0;
+const quoteText = document.querySelector("#quote");
+const nextQuoteButton = document.querySelector("#next-quote");
+
+function displayQuote(index) {
+  quoteText.innerHTML = `
+    <blockquote>
+      ${quotes[index].text}
+      <cite>${quotes[index].cite}</cite>
+    </blockquote>
+  `;
+}
+
+nextQuoteButton.addEventListener("click", function () {
+  currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+  displayQuote(currentQuoteIndex);
+});
+
+// Initial Quote Display
+document.addEventListener("DOMContentLoaded", function () {
+  displayQuote(currentQuoteIndex);
+});

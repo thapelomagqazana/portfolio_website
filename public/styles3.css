@@ -657,6 +657,122 @@ body {
   font-weight: bold;
 }
 
+/* Parallax Section */
+#parallax-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  perspective: 1px;
+  background: linear-gradient(to right, #2b5876, #4e4376);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Background Layers */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.layer1 {
+  background-image: url("./images/pexels-christina-morillo-1181359.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+.layer2 {
+  background-image: url("./images/pexels-fauxels-3183165.jpg");
+  transform: translateZ(-0.6px) scale(1.6);
+}
+
+.layer3 {
+  background-image: url("./images/pexels-pixabay-356056.jpg");
+  transform: translateZ(0) scale(1);
+}
+
+/* Parallax Content */
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+blockquote {
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  max-width: 700px;
+  line-height: 1.6;
+  opacity: 0;
+  color: #f0f0f0;
+  animation: fadeInQuote 1.5s forwards ease-in-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #dcdcdc;
+}
+
+@keyframes fadeInQuote {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Next Quote Button */
+.quote-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quote-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.quote-btn:active {
+  transform: scale(1);
+}
+
 /* Responsive Design and Adaptive Design */
 /* Large devices (desktops) */
 @media (min-width: 991px) {
@@ -727,6 +843,25 @@ body {
     padding: 12px 24px;
     font-size: 1.1rem;
   }
+
+  #parallax-section {
+    height: 100vh;
+  }
+
+  blockquote {
+    font-size: 2.5rem;
+    max-width: 900px;
+  }
+
+  .parallax-content {
+    max-width: 900px;
+    padding: 0 40px;
+  }
+
+  .quote-btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+  }
 }
 
 /* Medium devices (tablets) */
@@ -793,6 +928,25 @@ body {
   .expand-btn {
     padding: 10px 18px;
     font-size: 1rem;
+  }
+
+  #parallax-section {
+    height: 80vh;
+  }
+
+  blockquote {
+    font-size: 2rem;
+    max-width: 800px;
+  }
+
+  .parallax-content {
+    max-width: 700px;
+    padding: 0 20px;
+  }
+
+  .quote-btn {
+    font-size: 1.1rem;
+    padding: 12px 25px;
   }
 }
 
@@ -880,18 +1034,18 @@ body {
   .timeline-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Disable vertical overflow */
-    white-space: nowrap; /* Prevent wrapping of milestone items */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
     padding: 10px 0;
   }
 
   /* Milestone boxes will take up full width, but remain horizontally scrollable */
   .milestone {
-    min-width: 280px; /* Ensure the milestone has a fixed width */
-    width: 280px; /* Fixed width to enable horizontal scrolling */
-    margin-right: 15px; /* Spacing between milestones */
-    display: inline-block; /* Ensure they remain in a horizontal line */
+    min-width: 280px;
+    width: 280px;
+    margin-right: 15px;
+    display: inline-block;
   }
 
   /* Adjust font sizes for smaller screens */
@@ -935,5 +1089,31 @@ body {
 
   .projects-header h2 {
     font-size: 2.5rem;
+  }
+
+  #parallax-section {
+    height: auto;
+    padding: 50px 0;
+  }
+
+  .parallax-content {
+    max-width: 90%;
+    padding: 0 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  blockquote {
+    font-size: 1.5rem;
+    max-width: 100%;
+  }
+
+  .quote-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 80%;
+  }
+
+  .parallax-layer {
+    background-size: cover;
   }
 }
