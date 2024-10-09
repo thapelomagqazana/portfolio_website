@@ -1,3 +1,17 @@
+// Project data
+const projects = [
+  {
+    image_link: "cashflow_manager.png",
+    title: "CashFlow Manager",
+    description: "Track and organize transactions with ease.",
+    category: "web",
+    project_link: "https://cashflow-manger.netlify.app/",
+    source_code_link: "https://github.com/thapelomagqazana/budget_tracker",
+  },
+  // { id: 2, title: "Project 2", description: "Description 2", category: "app" },
+  // Add more projects as needed
+];
+
 // Hamburger Menu Toggle
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
@@ -65,4 +79,81 @@ document.querySelectorAll(".expand-btn").forEach((button) => {
       button.textContent = "Read Less"; // Change button text to "Read Less"
     }
   });
+});
+
+document.getElementById("filter").addEventListener("change", function () {
+  const category = this.value;
+  const projects = document.querySelectorAll(".project-card");
+
+  projects.forEach((project) => {
+    if (
+      category === "all" ||
+      project.getAttribute("data-category") === category
+    ) {
+      project.style.display = "block";
+    } else {
+      project.style.display = "none";
+    }
+  });
+});
+
+const projectsPerPage = 6; // Number of projects per page
+let currentPage = 1;
+
+function renderProjects() {
+  const projectsGrid = document.getElementById("projects-grid");
+  projectsGrid.innerHTML = ""; // Clear current projects
+
+  const startIndex = (currentPage - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const paginatedProjects = projects.slice(startIndex, endIndex);
+
+  paginatedProjects.forEach((project) => {
+    const projectCard = `
+      <div class="project-card" data-category="${project.category}">
+        <div class="project-image">
+          <img src="images/${project.image_link}" alt="${project.title}" loading="lazy" />
+        </div>
+        <div class="project-overlay">
+          <div class="overlay-content">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <a href=${project.project_link} class="project-link" target="_blank" >View Project</a>
+            <a href=${project.source_code_link} class="source-code-link" target="_blank" >View Source Code</a>
+          </div>
+        </div>
+      </div>
+    `;
+    projectsGrid.innerHTML += projectCard;
+  });
+
+  // Update pagination details
+  document.getElementById("current-page").textContent = currentPage;
+  document.getElementById("total-pages").textContent = Math.ceil(
+    projects.length / projectsPerPage
+  );
+}
+
+function handlePagination() {
+  const prevButton = document.getElementById("prev-page");
+  const nextButton = document.getElementById("next-page");
+
+  prevButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderProjects();
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentPage < Math.ceil(projects.length / projectsPerPage)) {
+      currentPage++;
+      renderProjects();
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProjects(); // Initial render
+  handlePagination(); // Handle pagination clicks
 });
