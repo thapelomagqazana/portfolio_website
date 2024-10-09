@@ -38,3 +38,31 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
   });
 });
+
+// Select all expand buttons
+document.querySelectorAll(".expand-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    // Get the related content using the data-target attribute
+    const target = document.querySelector(button.getAttribute("data-target"));
+
+    // Check if the target is currently visible
+    if (target.style.display === "block") {
+      target.style.display = "none"; // Collapse the content
+      button.textContent = "Read More"; // Change button text to "Read More"
+    } else {
+      // Collapse all other milestones
+      document.querySelectorAll(".more-text").forEach((moreText) => {
+        moreText.style.display = "none";
+      });
+
+      // Update all buttons back to "Read More"
+      document.querySelectorAll(".expand-btn").forEach((btn) => {
+        btn.textContent = "Read More";
+      });
+
+      // Expand the current milestone content
+      target.style.display = "block"; // Show the content
+      button.textContent = "Read Less"; // Change button text to "Read Less"
+    }
+  });
+});

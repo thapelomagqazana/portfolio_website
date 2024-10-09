@@ -91,61 +91,130 @@
           </p>
           <a href="#projects" class="cta-button">View Projects</a>
         </div>
-
-        <div class="hero-image">
-          <img src="images/undraw_engineering_team_a7n2.svg" alt="Thapelo" />
-        </div>
       </section>
 
       <section id="intro">
-        <div class="intro-content">
-          <div class="intro-text">
-            <h2>Hello, I'm <span>Thapelo Magqazana</span></h2>
-            <p>
-              <span id="a">Passionate. </span><span id="b">Innovative. </span
-              ><span id="c">Craftsmanship.</span>
-            </p>
-            <p>Let's explore the world of coding together!</p>
+        <div class="intro-bg">
+          <div class="intro-content">
+            <div class="intro-text">
+              <h2>Hello, I'm <span>Thapelo Magqazana</span></h2>
+              <p>
+                <span class="highlighted" id="passionate">Passionate. </span>
+                <span class="highlighted" id="innovative">Innovative. </span>
+                <span class="highlighted" id="craftsmanship"
+                  >Craftsmanship.</span
+                >
+              </p>
+              <p>Let's explore the world of coding together!</p>
+            </div>
+            <!-- Video introduction section -->
+            <div class="intro-video">
+              <video autoplay muted loop>
+                <source
+                  src="./videos/6804110-uhd_4096_2160_25fps.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- <div class="intro-image">
+              <img src="images/thmagqa022.jpg" alt="Thapelo" />
+            </div> -->
           </div>
-          <!-- <div class="intro-image">
-            <img src="images/thmagqa022.jpg" alt="Thapelo" />
-          </div> -->
         </div>
       </section>
       <!-- About Section -->
       <section id="about">
-        <div class="toggle-section">
-          <div class="toggle-header" data-target="about-content">
-            <h2 class="heading">About Me</h2>
-            <span class="arrow">&#9660;</span>
-          </div>
-          <div class="toggle-content" id="about-content">
-            <div class="about-content">
-              <div class="about-text">
-                <p>
-                  Johannesburg-based software alchemist, weaving intricate tech
-                  problems into elegant, intuitive solutions.
-                </p>
-                <p>
-                  I thrive on turning code into magic, obsessed with optimizing,
-                  exceeding expectations, and leaving a trail of future-proofed
-                  software in my wake.
-                </p>
-                <p>
-                  Join me on a quest to reimagine tech, where passion fuels
-                  innovation and every line of code is a brushstroke on the
-                  canvas of tomorrow. ✨
-                </p>
-                <p>
-                  Ready to create something extraordinary? Let's explore the
-                  possibilities.
-                </p>
+        <div class="about-header">
+          <h2>About Me</h2>
+          <p>Explore the key milestones of my career and journey</p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline" id="timeline">
+            <!-- Milestone 1: University of the Witwatersrand -->
+            <div class="milestone" id="milestone1">
+              <div class="icon-container">
+                <i class="fas fa-university"></i>
               </div>
-              <div class="about-image">
-                <img
-                  src="images/333Thapelo Magqazana  thmagqa022.jpg"
-                  alt="Thapelo"
-                />
+              <div class="content">
+                <h3>Bachelor of Science - Construction Studies</h3>
+                <p>Jan 2017 - Jul 2021 | University of the Witwatersrand</p>
+                <button class="expand-btn" data-target="#more1">
+                  Read More
+                </button>
+                <div class="more-text" id="more1">
+                  <p>
+                    Completed a BS in Construction Studies, gaining a solid
+                    foundation in construction principles, project management,
+                    and building technology, along with practical industry
+                    skills.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 2: WeThinkCode -->
+            <div class="milestone" id="milestone2">
+              <div class="icon-container">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="content">
+                <h3>Software Development Program</h3>
+                <p>Sep 2022 - Apr 2024 | WeThinkCode</p>
+                <button class="expand-btn" data-target="#more2">
+                  Read More
+                </button>
+                <div class="more-text" id="more2">
+                  <p>
+                    Completed a software development program at WeThinkCode,
+                    gaining proficiency in programming languages and practical
+                    problem-solving skills for the software industry.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 3: Software Tester -->
+            <div class="milestone" id="milestone3">
+              <div class="icon-container">
+                <i class="fas fa-bug"></i>
+              </div>
+              <div class="content">
+                <h3>Software Tester</h3>
+                <p>Mar 2024 - Sep 2024 | Johannesburg</p>
+                <button class="expand-btn" data-target="#more3">
+                  Read More
+                </button>
+                <div class="more-text" id="more3">
+                  <p>
+                    Reviewed requirements, prepared test scenarios, conducted
+                    usability tests, analyzed bugs, and provided detailed
+                    reports for design reviews to improve functionality.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 4: Web Developer at C. Steinweg Bridge Ltd -->
+            <div class="milestone" id="milestone4">
+              <div class="icon-container">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="content">
+                <h3>Web Developer</h3>
+                <p>Aug 2024 - Present | C. Steinweg Bridge Ltd</p>
+                <button class="expand-btn" data-target="#more4">
+                  Read More
+                </button>
+                <div class="more-text" id="more4">
+                  <p>
+                    Built a responsive, marketing website for a cargo tracking
+                    solution we developed using React and Bootstrap. Integrated
+                    real-time maps with Leaflet, deployed via Docker and Nginx,
+                    and implemented SEO best practices.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
