@@ -16,12 +16,25 @@ const projects = [
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 const heroSection = document.getElementById("hero");
+const parallaxSection = document.querySelector("#parallax-section");
+
 const currentHour = new Date().getHours();
 
 if (currentHour >= 18 || currentHour < 6) {
   heroSection.style.background = "linear-gradient(to right, #1a1a1a, #333)";
 } else {
   heroSection.style.background = "linear-gradient(to right, #007bff, #00c6ff)";
+}
+
+if (currentHour < 12) {
+  parallaxSection.style.background =
+    "linear-gradient(to right, #ffcc33, #ff9966)";
+} else if (currentHour < 18) {
+  parallaxSection.style.background =
+    "linear-gradient(to right, #3399ff, #33ccff)";
+} else {
+  parallaxSection.style.background =
+    "linear-gradient(to right, #002244, #334466)";
 }
 
 hamburger.addEventListener("click", () => {
@@ -212,3 +225,67 @@ nextQuoteButton.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   displayQuote(currentQuoteIndex);
 });
+
+// Show or hide the "Back to Top" button when the user scrolls
+window.onscroll = function () {
+  const backToTopBtn = document.getElementById("back-to-top");
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+};
+
+// Scroll smoothly to the top when the button is clicked
+document.getElementById("back-to-top").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+function submitForm() {
+  event.preventDefault(); // Prevent the form from submitting the traditional way
+
+  document.getElementById("confirmation-message").innerHTML = "";
+
+  // Capture the inputs
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Create an object with the captured data
+  const formData = {
+    name: name,
+    email: email,
+    message: message,
+  };
+
+  // Make an AJAX request
+  fetch("https://portfoliowebsite-production-74a1.up.railway.app/send-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log("SUCCESS!", data);
+      // Display confirmation message
+      document.getElementById("confirmation-message").innerHTML =
+        '<p style="color:green;">Your message has been sent successfully!</p>';
+
+      // Clear the form after a delay
+      setTimeout(function () {
+        document.getElementById("contactForm").reset();
+        document.getElementById("confirmation-message").innerHTML = ""; // Clear the confirmation message
+      }, 2000); // Set the delay in milliseconds
+    })
+    .catch((error) => {
+      console.log("FAILED...", error);
+      // Show error message
+      document.getElementById("confirmation-message").innerHTML =
+        '<p style="color:red;">There was an error sending your message. Please try again later.</p>';
+    });
+}
