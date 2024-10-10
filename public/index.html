@@ -107,18 +107,15 @@
               </p>
               <p>Let's explore the world of coding together!</p>
             </div>
-            <!-- Video introduction section -->
-            <!-- <div class="intro-video">
-              <video autoplay muted loop>
-                <source
-                  src="./videos/6804110-uhd_4096_2160_25fps.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div> -->
             <div class="intro-image">
-              <img src="images/thmagqa022.jpg" alt="Thapelo" loading="lazy" />
+              <picture>
+                <!-- WebP format for better performance -->
+                <source srcset="images/thmagqa022.webp" type="image/webp" />
+                <!-- JPEG fallback if WebP is not supported -->
+                <source srcset="images/thmagqa022.jpg" type="image/jpeg" />
+                <!-- Default image with lazy loading -->
+                <img src="images/thmagqa022.jpg" alt="Thapelo" loading="lazy" />
+              </picture>
             </div>
           </div>
         </div>
@@ -130,95 +127,100 @@
           <p>Explore the key milestones of my career and journey</p>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline" id="timeline">
-            <!-- Milestone 1: University of the Witwatersrand -->
-            <div class="milestone" id="milestone1">
-              <div class="icon-container">
-                <i class="fas fa-university"></i>
-              </div>
-              <div class="content">
-                <h3>Bachelor of Science - Construction Studies</h3>
-                <p>Jan 2017 - Jul 2021 | University of the Witwatersrand</p>
-                <button class="expand-btn" data-target="#more1">
-                  Read More
-                </button>
-                <div class="more-text" id="more1">
-                  <p>
-                    Completed a BS in Construction Studies, gaining a solid
-                    foundation in construction principles, project management,
-                    and building technology, along with practical industry
-                    skills.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Milestone 2: WeThinkCode -->
-            <div class="milestone" id="milestone2">
-              <div class="icon-container">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <div class="content">
-                <h3>Software Development Program</h3>
-                <p>Sep 2022 - Apr 2024 | WeThinkCode</p>
-                <button class="expand-btn" data-target="#more2">
-                  Read More
-                </button>
-                <div class="more-text" id="more2">
-                  <p>
-                    Completed a software development program at WeThinkCode,
-                    gaining proficiency in programming languages and practical
-                    problem-solving skills for the software industry.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Milestone 3: Software Tester -->
-            <div class="milestone" id="milestone3">
-              <div class="icon-container">
-                <i class="fas fa-bug"></i>
-              </div>
-              <div class="content">
-                <h3>Software Tester</h3>
-                <p>Mar 2024 - Sep 2024 | Johannesburg</p>
-                <button class="expand-btn" data-target="#more3">
-                  Read More
-                </button>
-                <div class="more-text" id="more3">
-                  <p>
-                    Reviewed requirements, prepared test scenarios, conducted
-                    usability tests, analyzed bugs, and provided detailed
-                    reports for design reviews to improve functionality.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Milestone 4: Web Developer at C. Steinweg Bridge Ltd -->
-            <div class="milestone" id="milestone4">
-              <div class="icon-container">
-                <i class="fas fa-code"></i>
-              </div>
-              <div class="content">
-                <h3>Web Developer</h3>
-                <p>Aug 2024 - Present | C. Steinweg Bridge Ltd</p>
-                <button class="expand-btn" data-target="#more4">
-                  Read More
-                </button>
-                <div class="more-text" id="more4">
-                  <p>
-                    Built a responsive, marketing website for a cargo tracking
-                    solution we developed using React and Bootstrap. Integrated
-                    real-time maps with Leaflet, deployed via Docker and Nginx,
-                    and implemented SEO best practices.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="resume-download">
+          <a
+            href="./docs/thapelo_resume.pdf"
+            download="Thapelo_Magqazana_Resume.pdf"
+            class="download-btn"
+          >
+            <i class="fas fa-download"></i> Download Resume
+          </a>
         </div>
+
+        <section id="career-roadmap" class="career-roadmap">
+          <h2 class="section-title">My Career Roadmap</h2>
+          <div class="timeline-container">
+            <!-- Milestone 1 -->
+            <div class="milestone" id="milestone1">
+              <div class="milestone-header" data-target="#milestone-details1">
+                <div class="milestone-icon">
+                  <i class="fas fa-university"></i>
+                </div>
+                <h3 class="milestone-title">
+                  Bachelor of Science - Construction Studies
+                </h3>
+                <p class="milestone-date">Jan 2017 - Jul 2021</p>
+              </div>
+              <div class="milestone-details" id="milestone-details1">
+                <p>
+                  Completed a BS in Construction Studies, gaining a solid
+                  foundation in construction principles, project management, and
+                  building technology.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="milestone" id="milestone2">
+              <div class="milestone-header" data-target="#milestone-details2">
+                <div class="milestone-icon">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="milestone-title">Software Development Program</h3>
+                <p class="milestone-date">Sep 2022 - Apr 2024</p>
+              </div>
+              <div class="milestone-details" id="milestone-details2">
+                <p>
+                  Completed a software development program at WeThinkCode,
+                  gaining proficiency in programming languages and practical
+                  problem-solving skills.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="milestone" id="milestone3">
+              <div class="milestone-header" data-target="#milestone-details3">
+                <div class="milestone-icon">
+                  <i class="fas fa-bug"></i>
+                </div>
+                <h3 class="milestone-title">Software Tester</h3>
+                <p class="milestone-date">Mar 2024 - Sep 2024</p>
+              </div>
+              <div class="milestone-details" id="milestone-details3">
+                <p>
+                  Reviewed software requirements, prepared test scenarios,
+                  conducted usability tests, and reported bugs to the design
+                  team.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 4 -->
+            <div class="milestone" id="milestone4">
+              <div class="milestone-header" data-target="#milestone-details4">
+                <div class="milestone-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h3 class="milestone-title">
+                  Web Developer at C. Steinweg Bridge Ltd
+                </h3>
+                <p class="milestone-date">Aug 2024 - Present</p>
+              </div>
+              <div class="milestone-details" id="milestone-details4">
+                <p>
+                  Built a responsive, marketing-focused website for a cargo
+                  tracking solution using React and Bootstrap. Integrated
+                  real-time maps with Leaflet and optimized performance with
+                  Docker and Nginx.
+                </p>
+              </div>
+            </div>
+
+            <!-- Scroll Progress Bar -->
+            <div id="progress-bar"></div>
+          </div>
+        </section>
       </section>
 
       <!-- Projects section -->

@@ -1,7 +1,7 @@
 // Project data
 const projects = [
   {
-    image_link: "cashflow_manager.png",
+    image_link: "cashflow_manager",
     title: "CashFlow Manager",
     description: "Track and organize transactions with ease.",
     category: "web",
@@ -125,7 +125,14 @@ function renderProjects() {
     const projectCard = `
       <div class="project-card" data-category="${project.category}">
         <div class="project-image">
-          <img src="images/${project.image_link}" alt="${project.title}" loading="lazy" />
+          <picture>
+            <!-- WebP format for modern browsers -->
+            <source srcset="images/${project.image_link}.webp" type="image/webp">
+            <!-- Fallback to JPEG/PNG for browsers that don't support WebP -->
+            <source srcset="images/${project.image_link}.jpg" type="image/jpeg">
+            <!-- Image with lazy loading -->
+            <img src="images/${project.image_link}.jpg" alt="${project.title}" loading="lazy" />
+          </picture>
         </div>
         <div class="project-overlay">
           <div class="overlay-content">
@@ -242,6 +249,54 @@ window.onscroll = function () {
 // Scroll smoothly to the top when the button is clicked
 document.getElementById("back-to-top").addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const milestones = document.querySelectorAll(".milestone-header");
+
+  milestones.forEach((milestone) => {
+    milestone.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      const details = document.querySelector(targetId);
+
+      // Toggle visibility
+      if (details.style.display === "block") {
+        details.style.display = "none";
+      } else {
+        details.style.display = "block";
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const milestones = document.querySelectorAll(".milestone");
+
+  const observerOptions = {
+    root: null, // Use the viewport as the container
+    threshold: 0.2, // Trigger animation when 20% of the milestone is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view"); // Add the class to trigger animations
+      } else {
+        entry.target.classList.remove("in-view"); // Remove class if out of view
+      }
+    });
+  }, observerOptions);
+
+  milestones.forEach((milestone) => {
+    observer.observe(milestone); // Observe each milestone
+  });
+});
+
+/* JavaScript to update progress bar width based on scroll */
+window.addEventListener("scroll", function () {
+  const totalHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = (window.pageYOffset / totalHeight) * 100;
+  document.getElementById("progress-bar").style.width = progress + "%";
 });
 
 function submitForm() {

@@ -367,105 +367,184 @@ body {
   line-height: 1.6;
 }
 
+/* Download Resume Button Styles */
+.resume-download {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+/* Hover Effect */
+.download-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slight scale for hover effect */
+}
+
+/* Pulse Effect on Hover */
+.download-btn:hover {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* General Timeline Styles */
+.career-roadmap {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  letter-spacing: 0.05rem;
+}
+
 /* Timeline Container */
 .timeline-container {
-  display: flex;
-  overflow-x: auto; /* Ensure scrolling */
-  overflow-y: hidden; /* Prevent vertical overflow */
-  padding: 30px 0;
-  scroll-behavior: smooth;
-  white-space: nowrap;
-  scrollbar-width: thin;
-  scrollbar-color: #007bff #f5f5f5;
-}
-
-/* Custom scrollbar styling for Webkit browsers */
-.timeline-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-.timeline-container::-webkit-scrollbar-thumb {
-  background-color: #007bff;
-  border-radius: 10px;
-}
-
-.timeline {
-  display: inline-flex;
   position: relative;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Milestone Styling */
+/* Default state for the milestones before they are in view */
 .milestone {
-  font-family: "Poppins", sans-serif;
-  display: inline-block;
-  background: white;
-  border-radius: 15px;
-  padding: 25px;
-  width: 280px;
-  margin-right: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  min-height: 300px;
-  height: auto;
-  word-wrap: break-word;
-  white-space: normal;
+  margin-bottom: 45px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.milestone:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+/* When the milestone comes into view, animate it */
+.milestone.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Milestone Icons */
-.icon-container {
-  font-size: 2.5rem;
-  color: #007bff;
-  margin-bottom: 15px;
-}
-
-/* Milestone Content */
-.milestone h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-.milestone p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-/* Expand Button */
-.expand-btn {
-  background-color: #00c6ff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
+.milestone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-  border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-wrap: wrap;
 }
 
-.expand-btn:hover {
-  background-color: #007bff;
-  transform: scale(1.05);
+.milestone-header:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* More Text Section (Initially Hidden) */
-.more-text {
+/* Milestone Icon */
+.milestone-icon {
+  font-size: 2.8rem;
+  color: #007bff;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+/* Milestone Title and Date */
+.milestone-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #34495e;
+  flex-grow: 1;
+  min-width: 50%;
+  margin-right: 20px;
+}
+
+.milestone-date {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-left: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Milestone Details (Initially Hidden) */
+.milestone-details {
   display: none;
   margin-top: 10px;
+  background-color: #f4f6f9;
+  border-left: 4px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeInDetails 0.6s ease-in-out;
+}
+
+/* Fade-in effect for milestone details */
+.milestone-details.in-view {
+  display: block;
+  animation: fadeInDetails 0.6s ease-in-out;
+}
+
+.milestone-details p {
   font-size: 1rem;
-  color: #666;
   line-height: 1.6;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
+  color: #333;
+}
+
+/* Animation for the fade-in of details */
+@keyframes fadeInDetails {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Progress Bar */
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: #007bff;
+  width: 0;
+  z-index: 9999;
 }
 
 /* Projects Section */
@@ -487,6 +566,7 @@ body {
   border: 1px solid #ddd;
   background-color: #f5f5f5;
   transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .filter-options select:hover {
@@ -643,6 +723,7 @@ body {
   margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .pagination-btn:hover {
@@ -978,6 +1059,7 @@ textarea {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 25px;
+  font-family: "Poppins", sans-serif;
 }
 
 .contact-btn:hover {
@@ -1129,23 +1211,20 @@ textarea {
     font-size: 1.4rem;
   }
 
-  /* Milestone boxes will be a bit larger on large screens */
-  .milestone {
-    width: 320px;
-    padding: 30px;
+  .milestone-header {
+    flex-wrap: nowrap; /* No wrapping for large screens */
   }
 
-  .milestone h3 {
-    font-size: 2rem;
+  .milestone-title {
+    font-size: 1.7rem;
   }
 
-  .milestone p {
+  .milestone-date {
     font-size: 1.2rem;
   }
 
-  .expand-btn {
-    padding: 12px 24px;
-    font-size: 1.1rem;
+  .milestone-icon {
+    font-size: 2.8rem;
   }
 
   #parallax-section {
@@ -1219,23 +1298,22 @@ textarea {
     font-size: 1.3rem;
   }
 
-  /* Milestone boxes will shrink a bit for medium screens */
-  .milestone {
-    width: 250px;
-    padding: 20px;
+  .milestone-header {
+    flex-wrap: wrap; /* Allow wrapping if necessary */
   }
 
-  .milestone h3 {
+  .milestone-title {
     font-size: 1.6rem;
+    min-width: 60%; /* Allow title to take more space */
   }
 
-  .milestone p {
+  .milestone-date {
     font-size: 1.1rem;
+    min-width: 40%; /* Allow date to fit better */
   }
 
-  .expand-btn {
-    padding: 10px 18px;
-    font-size: 1rem;
+  .milestone-icon {
+    font-size: 2.5rem;
   }
 
   #parallax-section {
@@ -1383,46 +1461,48 @@ textarea {
     font-size: 1.2rem;
   }
 
-  /* Timeline container will allow horizontal scrolling */
-  .timeline-container {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    padding: 10px 0;
-  }
-
-  /* Milestone boxes will take up full width, but remain horizontally scrollable */
-  .milestone {
-    min-width: 280px;
-    width: 280px;
-    margin-right: 15px;
-    display: inline-block;
-  }
-
-  /* Adjust font sizes for smaller screens */
-  .milestone h3 {
-    font-size: 1.5rem;
-  }
-
-  .milestone p {
+  .download-btn {
     font-size: 1rem;
+    padding: 10px 20px;
   }
 
-  .expand-btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
+  .download-btn i {
+    font-size: 1.2rem;
   }
 
-  /* Custom scrollbar styling */
-  .timeline-container::-webkit-scrollbar {
-    height: 6px;
+  .milestone-header {
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
-  .timeline-container::-webkit-scrollbar-thumb {
-    background-color: #007bff;
-    border-radius: 10px;
+  .milestone-title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    width: 100%;
+    line-height: 1.2;
+    word-wrap: break-word;
+  }
+
+  .milestone-date {
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  .milestone-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .milestone-details {
+    padding: 15px;
   }
 
   .projects-grid {
