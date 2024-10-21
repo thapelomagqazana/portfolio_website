@@ -1,10 +1,37 @@
 // Project data
 const projects = [
   {
+    image_link: "image_link",
+    title: "Image-Link",
+    description:
+      "Built a feature-packed social website with Django, PostgreSQL, and Redis for seamless community interaction, image sharing, and bookmarking.",
+    category: "web",
+    project_link: "https://web-production-a127.up.railway.app/",
+    source_code_link: "https://github.com/thapelomagqazana/social_media_app",
+  },
+  {
+    image_link: "pig_game",
+    title: "Pig Game",
+    description:
+      "Developed a two-player Pig Game using dice rolls, where strategy and luck combine to reach the target score first without rolling a 1.",
+    category: "design",
+    project_link: "https://thapelomagqazana.github.io/pigGame/",
+    source_code_link: "https://github.com/thapelomagqazana/pigGame",
+  },
+  {
+    image_link: "guess_the_number_game",
+    title: "Guess the Number Game",
+    description:
+      "A number guessing game where players try to guess a randomly generated number between 1 and 20, with feedback on each guess and score tracking, including a high score feature.",
+    category: "design",
+    project_link: "https://thapelomagqazana.github.io/guessTheNumberGame/",
+    source_code_link: "https://github.com/thapelomagqazana/guessTheNumberGame",
+  },
+  {
     image_link: "cashflow_manager",
     title: "CashFlow Manager",
     description: "Track and organize transactions with ease.",
-    category: "web",
+    category: "design",
     project_link: "https://cashflow-manger.netlify.app/",
     source_code_link: "https://github.com/thapelomagqazana/budget_tracker",
   },
@@ -94,88 +121,105 @@ document.querySelectorAll(".expand-btn").forEach((button) => {
   });
 });
 
-document.getElementById("filter").addEventListener("change", function () {
-  const category = this.value;
-  const projects = document.querySelectorAll(".project-card");
-
-  projects.forEach((project) => {
-    if (
-      category === "all" ||
-      project.getAttribute("data-category") === category
-    ) {
-      project.style.display = "block";
-    } else {
-      project.style.display = "none";
-    }
-  });
-});
-
-const projectsPerPage = 6; // Number of projects per page
+// Variables for pagination
 let currentPage = 1;
+const projectsPerPage = 2; // Adjust the number of projects per page
 
-function renderProjects() {
+// Function to render the projects based on the selected filter and current page
+function renderProjects(filteredCategory = "all") {
   const projectsGrid = document.getElementById("projects-grid");
   projectsGrid.innerHTML = ""; // Clear current projects
 
+  // Filter the projects based on the selected category
+  const filteredProjects = projects.filter((project) =>
+    filteredCategory === "all" ? true : project.category === filteredCategory
+  );
+
+  // Pagination logic
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
-  const paginatedProjects = projects.slice(startIndex, endIndex);
+  const paginatedProjects = filteredProjects.slice(startIndex, endIndex);
 
+  // Display the paginated projects
   paginatedProjects.forEach((project) => {
-    const projectCard = `
-      <div class="project-card" data-category="${project.category}">
-        <div class="project-image">
-          <picture>
-            <!-- WebP format for modern browsers -->
-            <source srcset="images/${project.image_link}.webp" type="image/webp">
-            <!-- Fallback to JPEG/PNG for browsers that don't support WebP -->
-            <source srcset="images/${project.image_link}.jpg" type="image/jpeg">
-            <!-- Image with lazy loading -->
-            <img src="images/${project.image_link}.jpg" alt="${project.title}" loading="lazy" />
-          </picture>
-        </div>
-        <div class="project-overlay">
-          <div class="overlay-content">
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <a href=${project.project_link} class="project-link" target="_blank" >View Project</a>
-            <a href=${project.source_code_link} class="source-code-link" target="_blank" >View Source Code</a>
-          </div>
-        </div>
-      </div>
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("project-card");
+    projectCard.setAttribute("data-category", project.category);
+    projectCard.innerHTML = `
+      <picture>
+        <!-- WebP format for modern browsers -->
+        <source srcset="images/${project.image_link}.webp" type="image/webp">
+        <!-- Fallback to JPEG for browsers that don't support WebP -->
+        <source srcset="images/${project.image_link}.jpg" type="image/jpeg">
+        <!-- Fallback image with lazy loading -->
+        <img src="images/${project.image_link}.jpg" alt="${project.title}" loading="lazy">
+      </picture>
+      <h3>${project.title}</h3>
     `;
-    projectsGrid.innerHTML += projectCard;
+
+    // Event listener to open modal on click
+    projectCard.addEventListener("click", () => {
+      openModal(project);
+    });
+
+    projectsGrid.appendChild(projectCard);
   });
 
   // Update pagination details
   document.getElementById("current-page").textContent = currentPage;
   document.getElementById("total-pages").textContent = Math.ceil(
-    projects.length / projectsPerPage
+    filteredProjects.length / projectsPerPage
   );
+
+  // Disable pagination buttons if necessary
+  document.getElementById("prev-page").disabled = currentPage === 1;
+  document.getElementById("next-page").disabled =
+    currentPage === Math.ceil(filteredProjects.length / projectsPerPage);
 }
 
-function handlePagination() {
-  const prevButton = document.getElementById("prev-page");
-  const nextButton = document.getElementById("next-page");
+// Function to open the modal with project details
+function openModal(project) {
+  const modal = document.getElementById("project-modal");
+  document.getElementById("modal-title").textContent = project.title;
+  document.getElementById("modal-description").textContent =
+    project.description;
+  document.getElementById("modal-project-link").href = project.project_link;
+  document.getElementById("modal-source-code-link").href =
+    project.source_code_link;
 
-  prevButton.addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderProjects();
-    }
-  });
-
-  nextButton.addEventListener("click", () => {
-    if (currentPage < Math.ceil(projects.length / projectsPerPage)) {
-      currentPage++;
-      renderProjects();
-    }
-  });
+  modal.style.display = "flex"; // Show the modal
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderProjects(); // Initial render
-  handlePagination(); // Handle pagination clicks
+// Close modal when the "X" is clicked
+document.querySelector(".close-modal").addEventListener("click", () => {
+  document.getElementById("project-modal").style.display = "none";
+});
+
+// Event listener for the filter dropdown
+document.getElementById("filter").addEventListener("change", function () {
+  const selectedCategory = this.value;
+  currentPage = 1; // Reset to the first page when the filter changes
+  renderProjects(selectedCategory);
+});
+
+// Pagination event listeners
+document.getElementById("prev-page").addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    const selectedCategory = document.getElementById("filter").value;
+    renderProjects(selectedCategory);
+  }
+});
+
+document.getElementById("next-page").addEventListener("click", function () {
+  currentPage++;
+  const selectedCategory = document.getElementById("filter").value;
+  renderProjects(selectedCategory);
+});
+
+// Initial render of all projects
+document.addEventListener("DOMContentLoaded", function () {
+  renderProjects(); // Render all projects initially
 });
 
 // Parallax Effect
