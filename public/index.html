@@ -6,6 +6,7 @@
         <meta name="description" content="Museum-style portfolio for a software developer">
         <title>Thapelo's Code Exhibit</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <link rel="stylesheet" href="styles.css">      
     </head>
     <body>
@@ -76,40 +77,62 @@
         </nav>
 
         <!-- Hero Section -->
-        <header class="bg-dark text-white text-center py-5 position-relative">
-            <div class="container">
-                <h1 class="display-4 fw-bold mb-3">Thapelo's Code Exhibit</h1>
-                <p class="lead fst-italic mb-4">Curating Innovative Code Solutions for a Better Tomorrow</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#portfolio" class="btn btn-outline-light btn-lg px-4" aria-label="Explore Gallery">Explore Gallery</a>
-                    <a href="#contact" class="btn btn-light btn-lg px-4" aria-label="Contact the Artist">Contact the Artist</a>
-                </div>
+        <header class="hero-section position-relative text-white text-center d-flex flex-column justify-content-center align-items-center">
+            <!-- Rotating Logo -->
+            <div class="rotating-logo">
+                <img src="./images/thapelo-logo.png" alt="Logo" class="img-fluid">
             </div>
-
-            <!-- Subtle Background Animation -->
-            <div class="hero-animation"></div>
+            
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="display-4 fw-bold mb-3">Thapelo's Code Exhibit</h1>
+                <p class="hero-lead typewriter-text mb-4"></p>
+                <a href="#portfolio" class="btn btn-outline-light btn-lg me-2">Explore Gallery</a>
+                <a href="#contact" class="btn btn-light btn-lg">Contact the Artist</a>
+            </div>
+        
+            <!-- Parallax Background -->
+            <div class="parallax-bg"></div>
         </header>
 
         <!-- About Section -->
-        <section id="about" class="py-5 bg-light">
+        <section id="about" class="py-5">
             <div class="container">
+                <!-- Section Title -->
+                <h2 class="section-title mb-4">About the Artist</h2>
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="./images/thmagqa022.jpg" alt="Thapelo's Photo" class="img-fluid rounded">
+                    <!-- Image Section -->
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <img src="./images/thmagqa022.jpg" alt="Thapelo's Photo" class="img-fluid rounded shadow">
                     </div>
-                    <div class="col-md-6">
-                        <h2>About the Artist</h2>
-                        <p>Hi, I'm Thapelo, a passionate software developer transforming ideas into innovative digital solutions. With expertise in full-stack development and a flair for creative problem-solving, I aim to craft experiences that inspire and impact.</p>
-                        <h4>Key Skills:</h4>
-                        <ul>
-                            <li>Web Development (HTML, CSS, JavaScript, React)</li>
-                            <li>Backend Development (Django, Flask, Node.js, Spring Boot)</li>
-                            <li>AI/ML (Python, TensorFlow, OpenCV)</li>
+
+                    <!-- Text Content Section -->
+                    <div class="col-md-7">
+                        <p class="lead">
+                            Hi, I'm <strong>Thapelo</strong>, a passionate software developer transforming ideas into innovative digital solutions.
+                            With expertise in full-stack development and a flair for creative problem-solving, I aim to craft experiences
+                            that inspire and impact.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Web Development (HTML, CSS, JavaScript, React)</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Backend Development (Django, Flask, Node.js)</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> AI/ML (Python, TensorFlow, OpenCV)</li>
                         </ul>
+                        <div class="mt-4">
+                            <!-- Download Resume -->
+                            <a href="./docs/thapelo_resume.pdf" download class="btn btn-primary btn-lg me-3">
+                                <i class="bi bi-file-earmark-arrow-down"></i> Download Resume
+                            </a>
+                            <!-- Contact Me -->
+                            <a href="#contact" class="btn btn-outline-dark btn-lg">
+                                <i class="bi bi-envelope"></i> Contact Me
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        
         <script src="script.js"></script>
     </body>
 </html>

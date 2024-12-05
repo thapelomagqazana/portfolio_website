@@ -1,3 +1,19 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+/* Primary Colors */
+:root {
+    --primary-bg: #f5f5f5; /* Light beige */
+    --primary-text: #333; /* Dark gray */
+    --heading-color: #222; /* Slightly darker for headings */
+    --accent-gold: #d4af37;
+    --accent-blue: #4169e1;
+    --accent-crimson: #dc143c;
+    --nav-link-color: gold;
+    --nav-link-color-hover: #f0a500;
+    --mobile-menu-background: #212529;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -7,18 +23,48 @@ section {
 }
 
 body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: var(--primary-text);
+    line-height: 1.8;
     scroll-snap-type: y mandatory;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.3;
+}
+
+/* Hierarchy */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 
 .nav-link.active {
-    color: gold !important;
-    border-bottom: 2px solid gold;
+    color: var(--nav-link-color) !important;
+    border-bottom: 2px solid var(--nav-link-color);
     transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f0a500 !important;
+    color: var(--nav-link-color-hover) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
@@ -29,6 +75,7 @@ body {
 
 .nav-link {
     animation: fadeInUp 1s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -51,8 +98,12 @@ body {
     }
 }
 
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
     transition: background-color 0.3s ease;
 }
 
@@ -66,7 +117,6 @@ body {
 }
 
 .breadcrumb a {
-    color: #007bff;
     text-decoration: none;
 }
 
@@ -81,7 +131,7 @@ body {
     right: -100%; /* Initially hidden */
     width: 75%;
     height: 100%;
-    background-color: #212529; /* Same as navbar */
+    background-color: var(--mobile-menu-background); /* Same as navbar */
     z-index: 1050; /* Above content */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease; /* Smooth slide-in effect */
@@ -97,14 +147,14 @@ body {
 }
 
 .mobile-menu a {
-    color: white;
+    color: var(--primary-bg);
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.2s;
 }
 
 .mobile-menu a:hover {
-    color: gold;
+    color: var(--nav-link-color);
 }
 
 /* Show Mobile Menu */
@@ -143,29 +193,177 @@ body {
     }
 }
 
+
+
+/* Hero Section */
+.hero-section {
+    margin-top: 50px;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('./images/floating-cogs.svg') center/cover no-repeat;
+    position: relative;
+}
+
+/* Rotating Logo */
+.rotating-logo {
+    position: absolute;
+    top: 10%;
+    width: 100px;
+    z-index: 1;
+}
+
+.rotating-logo img {
+    width: 100px;
+    transform-origin: center;
+    animation: rotate 10s linear infinite;
+}
+
+.hero-content {
+    margin-top: 50px;
+}
+
+/* Parallax Background */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    animation: moveBackground 10s infinite alternate ease-in-out;
+    z-index: 0;
+}
+
+/* Typewriter Effect */
+.typewriter-text::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1.5rem;
+    background-color: var(--primary-bg);
+    margin-left: 5px;
+    animation: blink 0.5s step-end infinite;
+}
+
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Rotating Logo Keyframes */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Background Animation Keyframes */
+@keyframes moveBackground {
+    from {
+        transform: translate(-10%, -10%) scale(1);
+    }
+    to {
+        transform: translate(10%, 10%) scale(1.1);
+    }
+}
+
+
+.btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.hero-animation {
+/* Marble Pattern */
+section {
+    background: url('./images/marble-pattern.jpg') center/cover no-repeat;
+    padding: 3rem 1.5rem;
+    border-top: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+/* Gradient for Section Titles */
+.section-title {
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    color: var(--heading-color);
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
-    z-index: -1;
-    animation: gradientShift 8s infinite alternate;
+    width: 50px;
+    height: 2px;
+    background: var(--accent-gold);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
+.section-title::before {
+    left: -60px;
+}
+
+.section-title::after {
+    right: -60px;
+}
+
+.lead {
+    color: #555;
+}
+
+.lead, .hero-lead {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+ul li i {
+    margin-right: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .rotating-logo img {
+        width: 75px;
     }
-    100% {
-        background-position: 100% 50%;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 90%;
+        margin-bottom: 20px;
     }
 }
 
