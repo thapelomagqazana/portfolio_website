@@ -5,13 +5,16 @@
 :root {
     --primary-bg: #f5f5f5; /* Light beige */
     --primary-text: #333; /* Dark gray */
-    --heading-color: #222; /* Slightly darker for headings */
+    --heading-color: #222; /* Darker for headings */
     --accent-gold: #d4af37;
     --accent-blue: #4169e1;
     --accent-crimson: #dc143c;
     --nav-link-color: gold;
     --nav-link-color-hover: #f0a500;
     --mobile-menu-background: #212529;
+    --neutral-white: #ffffff;
+    --neutral-gray: #e0e0e0;
+    --neutral-black: #000000;
 }
 
 html {
@@ -58,16 +61,19 @@ p {
 
 
 .nav-link.active {
-    color: var(--nav-link-color) !important;
     border-bottom: 2px solid var(--nav-link-color);
     transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--nav-link-color-hover) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+
+.nav-link.active, .nav-link:hover {
+    color: var(--nav-link-color);
+}
+
 
 .navbar-brand {
     animation: fadeIn 1s ease-in-out;
@@ -104,10 +110,20 @@ p {
 
 .navbar.scrolled {
     background-color: rgba(0, 0, 0, 0.9) !important;
+    color: var(--neutral-white);
     transition: background-color 0.3s ease;
 }
 
+
+
 /* Breadcrumb Styling */
+
+.breadcrumb {
+    background-color: var(--neutral-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
 .breadcrumb-nav {
     position: fixed;
     top: 70px;
@@ -118,10 +134,11 @@ p {
 
 .breadcrumb a {
     text-decoration: none;
+    color: var(--primary-text);
 }
 
 .breadcrumb-item.active {
-    color: #495057; /* Subtle active breadcrumb */
+    color: var(--accent-gold);
 }
 
 /* Mobile Menu */
@@ -147,7 +164,7 @@ p {
 }
 
 .mobile-menu a {
-    color: var(--primary-bg);
+    color: var(--neutral-white);
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.2s;
@@ -202,6 +219,7 @@ p {
     overflow: hidden;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('./images/floating-cogs.svg') center/cover no-repeat;
     position: relative;
+    color: var(--neutral-white);
 }
 
 /* Rotating Logo */
@@ -240,7 +258,7 @@ p {
     display: inline-block;
     width: 2px;
     height: 1.5rem;
-    background-color: var(--primary-bg);
+    background-color: var(--neutral-white);
     margin-left: 5px;
     animation: blink 0.5s step-end infinite;
 }
@@ -274,21 +292,46 @@ p {
 
 
 .btn {
+    background-color: var(--accent-gold);
+    color: var(--neutral-white);
+    border: none;
     border-radius: 30px;
     padding: 10px 20px;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    background-color: var(--accent-crimson);
+    color: var(--neutral-white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Special Buttons */
+.project-link {
+    background-color: var(--accent-blue);
+    color: var(--neutral-white);
+}
+
+.project-link:hover {
+    background-color: var(--accent-crimson);
+}
+
+.source-code-link {
+    background-color: var(--neutral-gray);
+    color: var(--primary-text);
+}
+
+.source-code-link:hover {
+    background-color: var(--neutral-black);
+    color: var(--neutral-white);
+}
+
 
 /* Marble Pattern */
 section {
     background: url('./images/marble-pattern.jpg') center/cover no-repeat;
+    color: var(--primary-text);
     padding: 3rem 1.5rem;
     border-top: 2px solid var(--accent-gold);
     border-bottom: 2px solid var(--accent-gold);
@@ -349,6 +392,76 @@ ul li {
 
 ul li i {
     margin-right: 10px;
+}
+
+/* Portfolio Section */
+#portfolioContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--neutral-white);
+    border: 1px solid var(--neutral-gray);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 300px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card-body {
+    padding: 1rem;
+}
+
+.project-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.project-card-description {
+    font-size: 0.9rem;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+}
+
+.tech-stack {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.tech-stack span {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+    background: var(--neutral-gray);
+    color: var(--primary-text);
+}
+
+.project-card-footer a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s, color 0.3s;
 }
 
 

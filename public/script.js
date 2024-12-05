@@ -103,4 +103,72 @@ document.addEventListener("DOMContentLoaded", () => {
         // Adjust parallax speed
         parallaxBg.style.transform = `translateY(${scrollY * 0.2}px)`;
     });
+
+    const projects = [
+        {
+          image_link: "./images/image_link.jpg",
+          title: "Image-Link",
+          description:
+            "Built a feature-packed social website with Django, PostgreSQL, and Redis for seamless community interaction, image sharing, and bookmarking.",
+          category: "web",
+          tech_stack: ["Django", "PostgreSQL", "Redis"],
+          project_link: "https://web-production-a127.up.railway.app/",
+          source_code_link: "https://github.com/thapelomagqazana/social_media_app",
+        },
+        {
+          image_link: "./images/pig_game.jpg",
+          title: "Pig Game",
+          description:
+            "Developed a two-player Pig Game using dice rolls, where strategy and luck combine to reach the target score first without rolling a 1.",
+          category: "design",
+          tech_stack: ["HTML", "CSS", "JavaScript"],
+          project_link: "https://thapelomagqazana.github.io/pigGame/",
+          source_code_link: "https://github.com/thapelomagqazana/pigGame",
+        },
+        {
+          image_link: "./images/guess_the_number_game.jpg",
+          title: "Guess the Number Game",
+          description:
+            "A number guessing game where players try to guess a randomly generated number between 1 and 20, with feedback on each guess and score tracking, including a high score feature.",
+          category: "design",
+          tech_stack: ["HTML", "CSS", "JavaScript"],
+          project_link: "https://thapelomagqazana.github.io/guessTheNumberGame/",
+          source_code_link: "https://github.com/thapelomagqazana/guessTheNumberGame",
+        },
+        {
+          image_link: "./images/cashflow_manager.jpg",
+          title: "CashFlow Manager",
+          description: "Track and organize transactions with ease.",
+          category: "design",
+          tech_stack: ["HTML", "CSS", "JavaScript"],
+          project_link: "https://cashflow-manger.netlify.app/",
+          source_code_link: "https://github.com/thapelomagqazana/budget_tracker",
+        },
+    ];
+      
+    const portfolioContainer = document.getElementById("portfolioContainer");
+      
+    // Dynamically Render Projects
+    projects.forEach((project) => {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+    
+        projectCard.innerHTML = `
+        <img src="${project.image_link}" alt="${project.title}" />
+        <div class="project-card-body">
+            <h3 class="project-card-title">${project.title}</h3>
+            <p class="project-card-description">${project.description}</p>
+            <div class="tech-stack">
+                ${project.tech_stack.map((tech) => `<span>${tech}</span>`).join("")}
+            </div>
+        </div>
+        <div class="project-card-footer">
+            <a href="${project.project_link}" target="_blank" class="project-link">Live Demo</a>
+            <a href="${project.source_code_link}" target="_blank" class="source-code-link">Source Code</a>
+        </div>
+        `;
+    
+        portfolioContainer.appendChild(projectCard);
+    });
+      
 });
