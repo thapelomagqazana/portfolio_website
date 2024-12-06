@@ -157,6 +157,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextPage = document.getElementById("nextPage");
     const pageInfo = document.getElementById("pageInfo");
 
+    // Function to Observe Project Cards
+    function observeProjectCards() {
+        const projectCards = document.querySelectorAll(".project-card");
+
+        projectCards.forEach((card) => observer.observe(card));
+    }
+
+    // Intersection Observer for Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    });
+
+    // Initial Observation of Project Cards
+    observeProjectCards();
+
     let currentPage = 1;
     const itemsPerPage = 2; // Number of items per page
     let filteredProjects = projects; // To hold filtered projects
@@ -276,10 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
             portfolioContainer.appendChild(projectCard);
         });
 
-        // Update Pagination Info
-        pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredProjects.length / itemsPerPage)}`;
-        prevPage.disabled = currentPage === 1;
-        nextPage.disabled = currentPage === Math.ceil(filteredProjects.length / itemsPerPage);
+        // Re-observe new project cards
+        observeProjectCards();
     }
 
     // Function to Handle Search
@@ -292,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         currentPage = 1; // Reset to first page
         renderProjects(currentPage);
+        updatePaginationControls();
     }
 
     // Event Listeners
@@ -301,6 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage > 1) {
             currentPage--;
             renderProjects(currentPage);
+            updatePaginationControls();
         }
     });
 
@@ -308,11 +327,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage < Math.ceil(filteredProjects.length / itemsPerPage)) {
             currentPage++;
             renderProjects(currentPage);
+            updatePaginationControls();
         }
     });
 
+    // Function to Update Pagination Controls
+    function updatePaginationControls() {
+        const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        prevPage.disabled = currentPage === 1;
+        nextPage.disabled = currentPage === totalPages;
+    }
+
     // Initial Render
     renderProjects(currentPage);
+    updatePaginationControls();
 
     // Get all filter buttons
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -332,6 +361,22 @@ document.addEventListener("DOMContentLoaded", () => {
             ) : projects;
             currentPage = 1; // Reset to first page
             renderProjects(currentPage);
+            updatePaginationControls();
         });
-    });      
+    });
+
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    const observer1 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("appear");
+            }
+        });
+    }, {
+        threshold: 0.3, // Trigger animation when 30% of the element is visible
+    });
+
+    timelineItems.forEach((item) => observer1.observe(item));
+
 });
