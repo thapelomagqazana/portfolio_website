@@ -7,6 +7,7 @@
         <title>Thapelo's Code Exhibit</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
         <link rel="stylesheet" href="styles.css">      
     </head>
     <body>
@@ -138,9 +139,32 @@
             <h2 class="section-title mb-4">Portfolio Gallery</h2>
             <p class="lead text-center text-muted mb-5">Explore my curated collection of projects, showcasing creativity and innovation.</p>
 
+            <!-- Search Bar -->
+            <div class="search-bar text-center mb-4">
+                <input type="text" id="searchInput" placeholder="Search projects..." class="form-control" />
+            </div>
+
             <!-- Projects Container -->
             <div class="row g-4" id="portfolioContainer"></div>
+
+            <!-- 3D Showcase Modal -->
+            <div id="threejs-modal" class="threejs-modal">
+                <div class="threejs-modal-content">
+                    <span id="closeThreeJS" class="close-btn">&times;</span>
+                    <h3 id="project-title" class="modal-title"></h3>
+                    <div id="threejs-container" class="threejs-container"></div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination text-center mt-4">
+                <button id="prevPage" class="btn btn-outline-primary" disabled>Previous</button>
+                <span id="pageInfo"></span>
+                <button id="nextPage" class="btn btn-outline-primary">Next</button>
+            </div>
+
         </section>
+        
         
         <script src="script.js"></script>
     </body>

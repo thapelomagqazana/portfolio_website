@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
           image_link: "./images/image_link.jpg",
           title: "Image-Link",
           description:
-            "Built a feature-packed social website with Django, PostgreSQL, and Redis for seamless community interaction, image sharing, and bookmarking.",
+            "Built a feature-packed social website for seamless community interaction, image sharing, and bookmarking.",
           category: "web",
           tech_stack: ["Django", "PostgreSQL", "Redis"],
           project_link: "https://web-production-a127.up.railway.app/",
@@ -147,28 +147,171 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
       
     const portfolioContainer = document.getElementById("portfolioContainer");
-      
-    // Dynamically Render Projects
-    projects.forEach((project) => {
-        const projectCard = document.createElement("div");
-        projectCard.classList.add("project-card");
-    
-        projectCard.innerHTML = `
-        <img src="${project.image_link}" alt="${project.title}" />
-        <div class="project-card-body">
-            <h3 class="project-card-title">${project.title}</h3>
-            <p class="project-card-description">${project.description}</p>
-            <div class="tech-stack">
-                ${project.tech_stack.map((tech) => `<span>${tech}</span>`).join("")}
-            </div>
-        </div>
-        <div class="project-card-footer">
+    const threejsModal = document.getElementById("threejs-modal");
+    const closeThreeJS = document.getElementById("closeThreeJS");
+    const threejsContainer = document.getElementById("threejs-container");
+    const projectTitle = document.getElementById("project-title");
+
+    const searchInput = document.getElementById("searchInput");
+    const prevPage = document.getElementById("prevPage");
+    const nextPage = document.getElementById("nextPage");
+    const pageInfo = document.getElementById("pageInfo");
+
+    let currentPage = 1;
+    const itemsPerPage = 2; // Number of items per page
+    let filteredProjects = projects; // To hold filtered projects
+
+    // Add Three.js Scene for Dynamic Projects
+    let scene, camera, renderer, cube;
+
+    // Function to Initialize 3D Showcase
+    function initThreeJS(project) {
+        // Clean up previous scene
+        if (renderer) {
+            renderer.dispose();
+            scene = null;
+            camera = null;
+            cube = null;
+            threejsContainer.innerHTML = "";
+        }
+
+        // Create Three.js Scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x212529);
+
+        // Create Camera
+        camera = new THREE.PerspectiveCamera(75, threejsContainer.offsetWidth / threejsContainer.offsetHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        // Create Renderer
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(threejsContainer.offsetWidth, threejsContainer.offsetHeight);
+        threejsContainer.appendChild(renderer.domElement);
+
+        // Create Cube with Project Images
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const materials = [
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load(project.image_link) }),
+            new THREE.MeshBasicMaterial({ color: 0xd4af37 }), // Accent gold for unused faces
+            new THREE.MeshBasicMaterial({ color: 0x4169e1 }),
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load(project.image_link) }),
+            new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load(project.image_link) }),
+            new THREE.MeshBasicMaterial({ color: 0xdc143c }),
+        ];
+
+        cube = new THREE.Mesh(geometry, materials);
+        scene.add(cube);
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+
+    // Function to Open 3D Showcase Modal
+    function openThreeJSModal(project) {
+        // Set the project title
+        projectTitle.innerText = project.title;
+
+        // Add project links
+        const modalFooter = document.createElement("div");
+        modalFooter.classList.add("project-card-footer");
+
+        modalFooter.innerHTML = `
             <a href="${project.project_link}" target="_blank" class="project-link">Live Demo</a>
             <a href="${project.source_code_link}" target="_blank" class="source-code-link">Source Code</a>
-        </div>
         `;
-    
-        portfolioContainer.appendChild(projectCard);
+
+        // Append footer links to modal content
+        const modalContent = threejsModal.querySelector(".threejs-modal-content");
+        
+        // Remove any existing footer to avoid duplication
+        const existingFooter = modalContent.querySelector(".project-card-footer");
+        if (existingFooter) {
+            existingFooter.remove();
+        }
+        
+        modalContent.appendChild(modalFooter);
+
+        // Show the modal
+        threejsModal.style.display = "flex";
+
+        // Initialize the 3D scene
+        initThreeJS(project);
+    }
+
+    // Function to Close Modal
+    closeThreeJS.addEventListener("click", () => {
+        threejsModal.style.display = "none";
     });
+
+    // Function to Render Projects
+    function renderProjects(page = 1) {
+        portfolioContainer.innerHTML = ""; // Clear container
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        const projectsToShow = filteredProjects.slice(startIndex, endIndex);
+
+        projectsToShow.forEach((project) => {
+            const projectCard = document.createElement("div");
+            projectCard.classList.add("project-card", "col-md-4");
+
+            projectCard.innerHTML = `
+                <img src="${project.image_link}" alt="${project.title}" />
+                <div class="project-card-body">
+                    <h3 class="project-card-title">${project.title}</h3>
+                    <p class="project-card-description">${project.description}</p>
+                    <div class="tech-stack">
+                        ${project.tech_stack.map((tech) => `<span>${tech}</span>`).join("")}
+                    </div>
+                </div>
+            `;
+            projectCard.addEventListener("click", () => openThreeJSModal(project));
+            portfolioContainer.appendChild(projectCard);
+        });
+
+        // Update Pagination Info
+        pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredProjects.length / itemsPerPage)}`;
+        prevPage.disabled = currentPage === 1;
+        nextPage.disabled = currentPage === Math.ceil(filteredProjects.length / itemsPerPage);
+    }
+
+    // Function to Handle Search
+    function handleSearch() {
+        const query = searchInput.value.toLowerCase();
+        filteredProjects = projects.filter((project) => 
+            project.title.toLowerCase().includes(query) || 
+            project.description.toLowerCase().includes(query) || 
+            project.tech_stack.some((tech) => tech.toLowerCase().includes(query))
+        );
+        currentPage = 1; // Reset to first page
+        renderProjects(currentPage);
+    }
+
+    // Event Listeners
+    searchInput.addEventListener("input", handleSearch);
+
+    prevPage.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderProjects(currentPage);
+        }
+    });
+
+    nextPage.addEventListener("click", () => {
+        if (currentPage < Math.ceil(filteredProjects.length / itemsPerPage)) {
+            currentPage++;
+            renderProjects(currentPage);
+        }
+    });
+
+    // Initial Render
+    renderProjects(currentPage);
       
 });
