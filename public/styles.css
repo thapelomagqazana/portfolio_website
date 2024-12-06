@@ -493,6 +493,44 @@ ul li i {
     color: var(--primary-text);
 }
 
+/* Filter Buttons Container */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Default Button Styles */
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 30px;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active Button */
+.filter-btn.active {
+    background-color: var(--accent-gold);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Hover Effect */
+.filter-btn:hover {
+    background-color: var(--accent-crimson);
+    color: white;
+    border-color: var(--accent-crimson);
+    transform: scale(1.05);
+}
+
 /* Modal Styling */
 .threejs-modal {
     display: none;
@@ -579,6 +617,16 @@ ul li i {
 
     .breadcrumb a {
         padding: 0 0.3rem; /* Add spacing between items */
+    }
+
+    .portfolio-filters {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }
 

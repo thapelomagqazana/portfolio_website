@@ -313,5 +313,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial Render
     renderProjects(currentPage);
-      
+
+    // Get all filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Remove 'active' class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove('active'));
+
+            // Add 'active' class to the clicked button
+            button.classList.add('active');
+
+            // Filter projects based on the selected category
+            const category = button.dataset.category;           
+            filteredProjects = category !== "all" ? projects.filter((project) => 
+                project.category.toLowerCase() === category
+            ) : projects;
+            currentPage = 1; // Reset to first page
+            renderProjects(currentPage);
+        });
+    });      
 });
