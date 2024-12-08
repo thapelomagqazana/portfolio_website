@@ -17,8 +17,22 @@
     --neutral-black: #000000;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+
 html {
     scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 section {
@@ -27,6 +41,7 @@ section {
 
 body {
     margin: 0;
+    padding: 0;
     font-family: "Lato", sans-serif;
     color: var(--primary-text);
     line-height: 1.8;
@@ -680,6 +695,195 @@ ul li i {
 .timeline-item.appear {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.skill-card {
+    position: relative;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.skill-card .radial-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: conic-gradient(var(--accent-gold) calc(var(--progress, 0%) * 1%), #eee 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.skill-card .radial-progress::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+}
+
+.skill-percent {
+    z-index: 1;
+    color: var(--accent-gold);
+}
+
+.skill-title {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Hover Effect */
+.skill-card:hover .radial-progress {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* Skill Graph */
+#skill-graph-container {
+    width: 100%;
+    height: 400px;
+}
+
+/* Contact Section Styling */
+#contact {
+    padding: 3rem 1rem;
+    color: var(--primary-text);
+    text-align: center;
+    position: relative;
+    border-top: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.guestbook-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--neutral-gray);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--accent-gold);
+}
+
+/* Button Styling */
+.guestbook-form .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--accent-gold);
+    color: var(--neutral-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.guestbook-form .btn:hover {
+    background-color: var(--accent-crimson);
+    transform: scale(1.05);
+}
+
+/* Thank You Animation */
+.thank-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.thank-you i {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    animation: writePen 1s ease forwards;
+}
+
+.thank-you p {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-top: 0.5rem;
+    color: var(--accent-crimson);
+}
+
+.thank-you.hidden {
+    display: none;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 2rem;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--accent-crimson);
+    transform: scale(1.2);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes writePen {
+    0% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 768px) {

@@ -379,4 +379,152 @@ document.addEventListener("DOMContentLoaded", () => {
 
     timelineItems.forEach((item) => observer1.observe(item));
 
+    // Set radial progress dynamically
+    document.querySelectorAll(".radial-progress").forEach((progress) => {
+        const value = progress.getAttribute("data-progress");
+        progress.style.setProperty("--progress", value);
+    });
+
+    const skillsGraph = {
+        nodes: [
+            { id: "JavaScript", group: 1 },
+            { id: "React", group: 1 },
+            { id: "Node.js", group: 1 },
+            { id: "HTML", group: 2 },
+            { id: "CSS", group: 2 },
+            { id: "Python", group: 3 },
+            { id: "Django", group: 3 },
+            { id: "Flask", group: 3 },
+        ],
+        links: [
+            { source: "JavaScript", target: "React" },
+            { source: "JavaScript", target: "Node.js" },
+            { source: "HTML", target: "CSS" },
+            { source: "Python", target: "Django" },
+            { source: "Python", target: "Flask" },
+        ],
+    };
+
+    // const svg = d3
+    //     .select("#skill-graph-container")
+    //     .append("svg")
+    //     .attr("width", "100%")
+    //     .attr("height", 400);
+
+    // const width = document.getElementById("skill-graph-container").offsetWidth;
+    // const height = 400;
+
+    // const simulation = d3
+    //     .forceSimulation(skillsGraph.nodes)
+    //     .force("link", d3.forceLink(skillsGraph.links).distance(100).strength(1).id((d) => d.id))
+    //     .force("charge", d3.forceManyBody().strength(-400))
+    //     .force("center", d3.forceCenter(width / 2, height / 2));
+
+    // const link = svg
+    //     .append("g")
+    //     .attr("class", "links")
+    //     .selectAll("line")
+    //     .data(skillsGraph.links)
+    //     .enter()
+    //     .append("line")
+    //     .attr("stroke-width", 2)
+    //     .attr("stroke", "#aaa");
+
+    // const node = svg
+    //     .append("g")
+    //     .attr("class", "nodes")
+    //     .selectAll("circle")
+    //     .data(skillsGraph.nodes)
+    //     .enter()
+    //     .append("circle")
+    //     .attr("r", 10)
+    //     .attr("fill", (d) => (d.group === 1 ? "var(--accent-gold)" : d.group === 2 ? "var(--accent-blue)" : "var(--accent-crimson)"))
+    //     .call(
+    //         d3.drag()
+    //             .on("start", (event, d) => {
+    //                 if (!event.active) simulation.alphaTarget(0.3).restart();
+    //                 d.fx = d.x;
+    //                 d.fy = d.y;
+    //             })
+    //             .on("drag", (event, d) => {
+    //                 d.fx = event.x;
+    //                 d.fy = event.y;
+    //             })
+    //             .on("end", (event, d) => {
+    //                 if (!event.active) simulation.alphaTarget(0);
+    //                 d.fx = null;
+    //                 d.fy = null;
+    //             })
+    //     );
+
+    // const text = svg
+    //     .append("g")
+    //     .selectAll("text")
+    //     .data(skillsGraph.nodes)
+    //     .enter()
+    //     .append("text")
+    //     .attr("x", 12)
+    //     .attr("y", ".31em")
+    //     .text((d) => d.id)
+    //     .style("font-size", "12px");
+
+    // simulation.on("tick", () => {
+    //     link.attr("x1", (d) => d.source.x)
+    //         .attr("y1", (d) => d.source.y)
+    //         .attr("x2", (d) => d.target.x)
+    //         .attr("y2", (d) => d.target.y);
+
+    //     node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
+
+    //     text.attr("x", (d) => d.x).attr("y", (d) => d.y);
+    // });
+
+    const contactForm = document.getElementById("contactForm");
+    const thankYou = document.getElementById("thankYou");
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent form from refreshing the page
+
+        // Capture the inputs
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Create an object with the captured data
+        const formData = {
+            name: name,
+            email: email,
+            message: message,
+        };
+
+        // Make an AJAX request
+        fetch("https://portfoliowebsite-production-74a1.up.railway.app/send-email", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                console.log("SUCCESS!", data);
+                // Simulate form submission
+                contactForm.style.display = "none"; // Hide the form
+                thankYou.classList.remove("hidden"); // Show the thank-you animation
+
+                // Reset the form after submission (optional)
+                setTimeout(() => {
+                    contactForm.reset();
+                    contactForm.style.display = "block";
+                    thankYou.classList.add("hidden");
+                }, 5000); // Reset after 5 seconds
+            })
+            .catch((error) => {
+            console.log("FAILED...", error);
+            // Show error message
+            document.getElementById("error-message").innerHTML =
+                '<p style="color:red;">There was an error sending your message. Please try again later.</p>';
+            });
+    });
+
 });
