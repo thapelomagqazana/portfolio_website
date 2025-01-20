@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Smooth scroll to projects section
-    // document.querySelectorAll('.btn[href^="#"]').forEach(anchor => {
-    //     anchor.addEventListener('click', function (e) {
-    //         e.preventDefault();
-    //         const target = document.querySelector(this.getAttribute('href'));
-    //         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    //     });
-    // });
-
     // Mobile Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -90,38 +81,38 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "CaloriSee",
             description:
                 "An AI-powered meal tracking app that simplifies logging meals by detecting food items from uploaded images using YOLOv5. It provides instant nutritional information and helps users maintain daily calorie goals through intuitive logs.",
-            techStack: "YOLOv5, Flask, Python",
+            techStack: "YOLOv5, React, Nodejs, Bootstrap, MongoDB",
             category: "AI",
             github: "https://github.com/thapelomagqazana/food-snap",
             liveDemo: "https://calorisee.up.railway.app/",
         },
         {
-            name: "WeatherNow",
+            name: "Pip-Boy",
             description:
-                "A simple weather app that provides real-time weather updates using OpenWeatherMap API.",
+                "A retro-inspired Pip-Boy web application designed to emulate Fallout's iconic interface with interactive features. ",
             techStack: "JavaScript, HTML, CSS",
             category: "Frontend",
-            github: "https://github.com/example/weather-now",
-            liveDemo: "https://weathernow.example.com",
+            github: "https://github.com/thapelomagqazana/pipboy-web-app",
+            liveDemo: "https://thapelomagqazana.github.io/pipboy-web-app",
         },
         {
-            name: "TaskFlow",
+            name: "Guess-The-Number",
             description:
-                "An intuitive task management app to organize your daily work efficiently.",
-            techStack: "React, Node.js, MongoDB",
-            category: "Full Stack",
-            github: "https://github.com/example/taskflow",
-            liveDemo: "https://taskflow.example.com",
+                "The game will generate a random number between 1 and 20. The user will try to guess the number, and the game will provide feedback like \"Too high!\" or \"Too low!\" until the correct number is guessed. The game will also track the user's score, and the highest score will be stored.",
+            techStack: "JavaScript, HTML, CSS",
+            category: "Frontend",
+            github: "https://github.com/thapelomagqazana/guessTheNumberGame",
+            liveDemo: "https://thapelomagqazana.github.io/guessTheNumberGame",
         },
-        {
-            name: "ShopEase",
-            description:
-                "A minimalistic e-commerce platform with secure payment integration.",
-            techStack: "Django, PostgreSQL, Bootstrap",
-            category: "Full Stack",
-            github: "https://github.com/example/shopease",
-            liveDemo: "https://shopease.example.com",
-        },
+        // {
+        //     name: "ShopEase",
+        //     description:
+        //         "A minimalistic e-commerce platform with secure payment integration.",
+        //     techStack: "Django, PostgreSQL, Bootstrap",
+        //     category: "Full Stack",
+        //     github: "https://github.com/example/shopease",
+        //     liveDemo: "https://shopease.example.com",
+        // },
     ];
 
     // Function to Render Filter Options
@@ -257,45 +248,41 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Trigger on load in case section is visible
 
-    function submitForm() {
-        event.preventDefault(); // Prevent traditional form submission
-      
-        document.getElementById("confirmation-message").innerHTML = ""; // Clear previous message
-      
-        // Capture inputs
+    const contactForm = document.getElementById("contactForm");
+
+    // Attach submit event listener
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+
+        const confirmationMessage = document.getElementById("confirmation-message");
+        confirmationMessage.innerHTML = ""; // Clear previous message
+
+        // Capture form inputs
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
-      
+
         // Create data object
-        const formData = {
-          name: name,
-          email: email,
-          message: message,
-        };
-      
+        const formData = { name, email, message };
+
         // AJAX request
         fetch("https://portfoliowebsite-production-74a1.up.railway.app/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
         })
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("confirmation-message").innerHTML =
-              "Message sent successfully!";
+        .then((response) => response.text())
+        .then((data) => {
+            confirmationMessage.innerHTML = "Message sent successfully!";
             setTimeout(() => {
-              document.getElementById("contactForm").reset(); // Clear the form
-              document.getElementById("confirmation-message").innerHTML = ""; // Clear message
+            contactForm.reset(); // Clear the form
+            confirmationMessage.innerHTML = ""; // Clear message
             }, 2000);
-          })
-          .catch((error) => {
-            document.getElementById("confirmation-message").innerHTML =
-              "Failed to send message. Please try again.";
-          });
-    }
+        })
+        .catch((error) => {
+            confirmationMessage.innerHTML = "Failed to send message. Please try again.";
+        });
+    });
       
     
 });
