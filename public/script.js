@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = { name, email, message };
 
         // AJAX request
-        fetch("https://portfoliowebsite-production-74a1.up.railway.app/send-email", {
+        fetch("https://thapelo-portfolio-server.up.railway.app/send-email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),

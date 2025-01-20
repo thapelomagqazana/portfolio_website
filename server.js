@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // Configure CORS
 const corsOptions = {
-  origin: ["http://localhost:5000", "https://thapelo-magqazana-portfolio.up.railway.app", "http://127.0.0.1:8080"], // Allow both local and production domains
+  origin: "*", // Allow all origins (or specify domains like 'http://example.com')
   methods: "GET,POST,OPTIONS",
   allowedHeaders: "Content-Type,Authorization",
 };
