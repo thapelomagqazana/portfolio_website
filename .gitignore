@@ -1,0 +1,54 @@
+# Node modules folder
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Environment variable files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Static and build folders
+build/
+dist/
+coverage/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+tmp/
+temp/
+
+# Package locks (optional, depends on your workflow)
+package-lock.json
+yarn.lock
+
+# Generated files
+*.pid
+*.seed
+*.pid.lock
+
+# Debug files
+*.log
+*.stackdump
+*.swp
+
+# Git-specific
+*.

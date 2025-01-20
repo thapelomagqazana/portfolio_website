@@ -3,26 +3,36 @@ const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+require("dotenv").config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Configure CORS
+const corsOptions = {
+  origin: "*", // Allow all origins (or specify domains like 'http://example.com')
+  methods: "GET,POST,OPTIONS",
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
+
+// Parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Serve static files (e.g., HTML, CSS, JS)
+// Serve static files
 app.use(express.static("public"));
 
 // Handle form submission
 app.post("/send-email", (req, res) => {
   const { name, email, message } = req.body;
 
-  // Create a nodemailer transporter
+  // Create nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "tapsmcgzee8@gmail.com",
-      pass: "slml tmnz ymqd scbd",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
