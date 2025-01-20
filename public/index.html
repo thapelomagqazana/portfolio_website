@@ -1,316 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thapelo Magqazana - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Museum-style portfolio for a software developer">
-        <title>Thapelo's Code Exhibit</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <!-- FontAwesome CDN -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-        <!-- Favicon for Browsers -->
-        <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="styles.css">      
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-            <div class="container">
-                <!-- Brand Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="./images/taps_logo.png" alt="Logo" class="img-fluid me-2" style="width: 40px;">
-                    <span class="fw-bold">Thapelo's Code Exhibit</span>
-                </a>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav class="nav-section">
+        <div class="logo">TM</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-                <!-- Mobile Toggle -->
-                <button class="navbar-toggler" type="button" id="hamburgerMenuToggle" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Thapelo Magqazana</h1>
+            <h2>
+                <span id="dynamic-role"></span>
+            </h2>
+            <p>"Building the future of the web, one line of code at a time."</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn">View My Projects</a>
+                <a href="./docs/Thapelo_resume.pdf" class="btn" download>Download My CV</a>
+            </div>
+        </div>
+        <div class="scroll-cue">
+            <span>&#x25BC;</span>
+        </div>
+    </header>
 
-                <!-- Navbar Links for Desktop -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto text-uppercase fw-semibold">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+    <section class="about-me" id="about">
+        <div class="about-container">
+            <!-- Visual Content -->
+            <div class="about-visual">
+                <img src="./images/thmagqa022.jpg" alt="Profile Illustration" class="animated-profile" />
+                <blockquote>“If at first you don’t succeed; call it version 1.0” — Unknown</blockquote>
+            </div>
+    
+            <!-- Text Content -->
+            <div class="about-text">
+                <h2>About Me</h2>
+                <h3>From laying literal foundations to building digital ones, here's my journey.</h3>
+                <p>
+                    From building physical structures to crafting digital landscapes, 
+                    my journey has been one of discovery and reinvention. 
+                    With a foundation in <span class="highlight">construction management</span>, 
+                    I honed my <span class="highlight">problem-solving</span> skills in the real world, 
+                    navigating complex challenges with precision and creativity. 
+                    Transitioning into <span class="highlight">coding</span> felt like a natural evolution—a limitless canvas where 
+                    <span class="highlight">logic</span> meets <span class="highlight">innovation</span>. 
+                    Today, I bring that same analytical mindset and passion for creation to the digital realm, 
+                    building <span class="highlight">full-stack solutions</span> that power the web, one ingenious line of code at a time.
+                </p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Slide-in Mobile Menu -->
-                <div class="mobile-menu d-lg-none" id="mobileMenu">
-                    <ul class="list-unstyled text-uppercase fw-semibold">
-                        <li><a href="#about" class="mobile-nav-link">About</a></li>
-                        <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
-                        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
-                        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
-                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-                    </ul>
-                </div>
+    <section class="portfolio-projects" id="projects">
+        <h2>Portfolio Projects</h2>
+        <div class="filter-container">
+            <!-- Filter buttons will be dynamically rendered here -->
+        </div>
+        <div class="portfolio-container">
+            <!-- Projects will be dynamically rendered here -->
+        </div>
+    </section>
 
-                <!-- Breadcrumb Navigation -->
-                <div class="breadcrumb-nav bg-light py-2 px-3 d-none">
-                    <div class="container">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#portfolio">Portfolio</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Project Details</li>
-                            </ol>
-                        </nav>
+    <section class="skills-section" id="skills">
+        <div class="skills-container">
+            <!-- Headline -->
+            <h2>Skills & Expertise</h2>
+    
+            <!-- Hard Skills -->
+            <div class="hard-skills">
+                <h3>Hard Skills</h3>
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="bar">
+                        <div class="progress" style="width: 90%;"></div>
                     </div>
                 </div>
-
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <header class="hero-section position-relative text-white text-center d-flex flex-column justify-content-center align-items-center">
-            <!-- Rotating Logo -->
-            <div class="rotating-logo">
-                <img src="./images/thapelo-logo.png" alt="Logo" class="img-fluid">
-            </div>
-            
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <h1 class="display-4 fw-bold mb-3">Thapelo's Code Exhibit</h1>
-                <p class="hero-lead typewriter-text mb-4"></p>
-                <!-- <a href="#portfolio" class="btn btn-outline-light btn-lg me-2">Explore Gallery</a> -->
-                <!-- <a href="#contact" class="btn btn-light btn-lg">Contact the Artist</a> -->
-            </div>
-        
-            <!-- Parallax Background -->
-            <div class="parallax-bg"></div>
-        </header>
-
-        <!-- About Section -->
-        <section id="about" class="py-5">
-            <div class="container">
-                <!-- Section Title -->
-                <h2 class="section-title mb-4">About the Developer</h2>
-                <div class="row align-items-center">
-                    <!-- Image Section -->
-                    <div class="col-md-5 mb-4 mb-md-0">
-                        <img src="./images/thmagqa022.jpg" alt="Thapelo's Photo" class="img-fluid rounded shadow">
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
                     </div>
-
-                    <!-- Text Content Section -->
-                    <div class="col-md-7">
-                        <p class="lead">
-                            Hi, I'm <strong>Thapelo</strong>, a passionate software developer transforming ideas into innovative digital solutions.
-                            With expertise in full-stack development and a flair for creative problem-solving, I aim to craft experiences
-                            that inspire and impact.
-                        </p>
-                        <ul class="list-unstyled">
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Web Development (HTML, CSS, JavaScript, React)</li>
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Backend Development (Django, Flask, Node.js, Spring Boot)</li>
-                            <!-- <li><i class="bi bi-check-circle-fill text-success"></i> AI/ML (Python, TensorFlow, OpenCV)</li> -->
-                        </ul>
-                        <div class="mt-4">
-                            <!-- Download Resume -->
-                            <a href="./docs/thapelo_resume.pdf" download class="btn btn-primary btn-lg me-3">
-                                <i class="bi bi-file-earmark-arrow-down"></i> Download Resume
-                            </a>
-                            <!-- Contact Me -->
-                            <a href="#contact" class="btn btn-outline-dark btn-lg">
-                                <i class="bi bi-envelope"></i> Contact Me
-                            </a>
-                        </div>
+                    <div class="bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <i class="fab fa-python"></i>
+                        <span>Django</span>
+                    </div>
+                    <div class="bar">
+                        <div class="progress" style="width: 80%;"></div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio">
-            <h2 class="section-title mb-4">Portfolio Gallery</h2>
-            <p class="lead text-center text-muted mb-5">Explore my curated collection of projects, showcasing creativity and innovation.</p>
-
-            <!-- Search Bar -->
-            <div class="search-bar text-center mb-4">
-                <input type="text" id="searchInput" placeholder="Search projects..." class="form-control" />
+    
+            <!-- Soft Skills -->
+            <div class="soft-skills">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li><i class="fas fa-lightbulb"></i> Problem-solving</li>
+                    <li><i class="fas fa-chart-line"></i> Analytical Thinking</li>
+                    <li><i class="fas fa-eye"></i> Attention to Detail</li>
+                    <li><i class="fas fa-users"></i> Teamwork</li>
+                    <li><i class="fas fa-comments"></i> Communication</li>
+                </ul>
             </div>
+        </div>
+    </section>
 
-            <div class="portfolio-filters text-center mb-4">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="web">Web</button>
-                <button class="filter-btn" data-category="design">Design</button>
-                <!-- <button class="filter-btn" data-category="ai">AI</button> -->
-            </div>
-
-            <!-- Projects Container -->
-            <div class="row g-4" id="portfolioContainer"></div>
-
-            <!-- 3D Showcase Modal -->
-            <div id="threejs-modal" class="threejs-modal">
-                <div class="threejs-modal-content">
-                    <span id="closeThreeJS" class="close-btn">&times;</span>
-                    <h3 id="project-title" class="modal-title"></h3>
-                    <div id="threejs-container" class="threejs-container"></div>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination text-center mt-4">
-                <button id="prevPage" class="btn btn-outline-primary" disabled>Previous</button>
-                <span id="pageInfo"></span>
-                <button id="nextPage" class="btn btn-outline-primary">Next</button>
-            </div>
-        </section>
-
-        <section id="experience" class="py-5">
-            <h2 class="section-title text-center mb-4">Experience Timeline Hall</h2>
-            <div class="timeline-container">
+    <section class="education-section" id="education">
+        <div class="education-container">
+            <h2>Education Background</h2>
+            <div class="timeline">
                 <!-- Timeline Item -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-marker">
-                        <i class="fas fa-trophy"></i>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <i class="fas fa-graduation-cap"></i> 2021
                     </div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">Web Developer at C. Steinweg Bridge Ltd</h3>
-                        <p class="timeline-date">August 2024 - November 2024</p>
-                        <p>
-                            Built a responsive, marketing-focused website for a cargo
-                            tracking solution. Integrated real-time maps with Leaflet and used SEO best practices.
-                        </p>
-                        <div class="tech-icons">
-                            <i class="fab fa-react" title="React"></i>
-                            <i class="fab fa-bootstrap" title="Bootstrap"></i>
-                            <i class="fab fa-docker" title="Docker"></i>
-                            <i class="fab fa-server" title="Nginx"></i>
-                        </div>
+                        <h3>University of Witwatersrand</h3>
+                        <p>BSc Construction Studies</p>
+                        <p><strong>Status:</strong> Completed 2021</p>
+                        <a href="https://drive.google.com/file/d/1dM3zx0g9PZKqNlxqWEnPIo5Lpn1UNpQ_/view?usp=sharing" target="_blank" class="certificate-link">
+                            View Certificate
+                        </a>
                     </div>
                 </div>
-        
-                <!-- Another Timeline Item -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-marker">
-                        <i class="fas fa-medal"></i>
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <i class="fas fa-laptop-code"></i> 2024
                     </div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">Software Tester at C. Steinweg Bridge Ltd</h3>
-                        <p class="timeline-date">March 2024 - September 2024</p>
-                        <p>
-                            Reviewed software requirements, prepared test scenarios,
-                            conducted usability tests, and reported bugs to the development
-                            team.
-                        </p>
-                        <div class="tech-icons">
-                            <i class="fas fa-bug" title="Testing"></i>
-                            <i class="fas fa-tools" title="Tools"></i>
-                        </div>
+                        <h3>WeThinkCode_</h3>
+                        <p>NQF Level 5 Qualification in Systems Development</p>
+                        <p><strong>Status:</strong> Completed 2024</p>
+                        <a href="https://drive.google.com/file/d/1UwoelTevT1QTdD3J_iYHwOxfMkfUW5CD/view?usp=sharing" target="_blank" class="certificate-link">
+                            View Certificate
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" class="py-5">
-            <h2 class="section-title text-center mb-4">Skills Showcase</h2>
-        
-            <!-- Radial Progress Bars -->
-            <div class="skills-container">
-                <div class="skill-card" data-skill="Python">
-                    <div class="radial-progress" data-progress="80">
-                        <span class="skill-percent">80%</span>
-                    </div>
-                    <p class="skill-title">Python</p>
-                </div>
-                <div class="skill-card" data-skill="JavaScript">
-                    <div class="radial-progress" data-progress="80">
-                        <span class="skill-percent">80%</span>
-                    </div>
-                    <p class="skill-title">JavaScript</p>
-                </div>
-                <div class="skill-card" data-skill="Java">
-                    <div class="radial-progress" data-progress="70">
-                        <span class="skill-percent">70%</span>
-                    </div>
-                    <p class="skill-title">Java</p>
-                </div>
-                <div class="skill-card" data-skill="React">
-                    <div class="radial-progress" data-progress="60">
-                        <span class="skill-percent">60%</span>
-                    </div>
-                    <p class="skill-title">React</p>
-                </div>
-                <div class="skill-card" data-skill="Node.js">
-                    <div class="radial-progress" data-progress="70">
-                        <span class="skill-percent">70%</span>
-                    </div>
-                    <p class="skill-title">Node.js</p>
-                </div>
+    <section class="experience-section" id="experience">
+        <div class="experience-container">
+            <!-- Headline -->
+            <h2>Professional Experience</h2>
+    
+            <!-- Job Role: Software Tester -->
+            <div class="experience-article">
+                <h3>Software Tester</h3>
+                <h4>C. Steinweg Bridge Ltd <span>(Mar 2024 - Sep 2024)</span></h4>
+                <p class="responsibilities-heading">Responsibilities:</p>
+                <ul class="responsibilities-list">
+                    <li>Reviewing software requirements and preparing test scenarios.</li>
+                    <li>Executing usability tests and analyzing results.</li>
+                    <li>Reporting issues to the design team.</li>
+                    <li>Interacting with clients to understand requirements.</li>
+                </ul>
+                <p class="reference"><strong>Reference:</strong> Craig Matthews (082 949 2061)</p>
             </div>
-        
-            <!-- Skill Visualization -->
-            <!-- <div id="skills-graph" class="mt-5">
-                <h3 class="text-center">Skill Connections</h3>
-                <div id="skill-graph-container"></div>
-            </div> -->
-        </section>
-
-        <section id="contact" class="py-5">
-            <div class="container">
-                <h2 class="section-title text-center mb-4">Get In Touch</h2>
-                <p class="text-center lead">Leave a message for the developer. We'd love to hear from you!</p>
-        
-                <!-- Contact Form -->
-                <form id="contactForm" class="guestbook-form" action="/send-email" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Leave a Message</button>
-                </form>
-        
-                <!-- Thank You Animation -->
-                <div id="thankYou" class="thank-you hidden">
-                    <i class="fas fa-pen"></i>
-                    <p>Thank You!</p>
-                </div>
-
-                <div id="error-message"></div>
-        
-                <!-- Social Media Icons -->
-                <div class="social-icons text-center mt-4">
-                    <a
-                    class="social-icon"
-                    href="https://www.linkedin.com/in/thapelo-magqazana-90632a174/"
-                    target="_blank"
-                  >
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a 
-                    class="social-icon"
-                    href="https://github.com/thapelomagqazana" 
-                    target="_blank">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+    
+            <!-- Job Role: Web Developer -->
+            <div class="experience-article">
+                <h3>Web Developer</h3>
+                <h4>C. Steinweg Bridge Ltd <span>(Aug 2024 - Nov 2024)</span></h4>
+                <p class="responsibilities-heading">Responsibilities:</p>
+                <ul class="responsibilities-list">
+                    <li>Built a responsive, SEO-optimized marketing website for a cargo tracking solution.</li>
+                    <li>Integrated real-time maps using Leaflet.</li>
+                </ul>
             </div>
-        </section>
-        <script src="script.js"></script>
-    </body>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+          <h2>Get in Touch</h2>
+          <div class="contact-form-container">
+            <!-- Contact Form -->
+            <form id="contactForm" onsubmit="submitForm()">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+              <div id="confirmation-message" class="confirmation-message"></div>
+            </form>
+      
+            <!-- Additional Info -->
+            <div class="additional-info">
+              <h3>Additional Info</h3>
+              <p><strong>Email:</strong> tapsmcgzee8@gmail.com</p>
+              <p><strong>Phone:</strong> 063 646 7276</p>
+              <p><strong>Address:</strong> Umngandane Street, Birch Acres, Kempton Park, JHB</p>
+            </div>
+
+            <!-- Interactive Map -->
+            <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.3073515353275!2d28.22220951503376!3d-26.095196283511085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9516e2d3b025b7%3A0x76997c8109e529c1!2sUmngandane%20Street%2C%20Birch%20Acres%2C%20Kempton%20Park%2C%20Johannesburg!5e0!3m2!1sen!2sza!4v1695123456789!5m2!1sen!2sza"
+                  width="100%"
+                  height="350"
+                  style="border: 0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-section">
+        <div class="footer-container">
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#portfolio">Portfolio Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+      
+          <!-- Social Media -->
+          <div class="footer-social">
+            <h3>Social Media</h3>
+            <div class="social-icons">
+              <a href="https://github.com/thapelomagqazana" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/thapelo-magqazana-90632a174" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+      
+          <!-- Copyright -->
+          <div class="footer-copyright">
+            <p>© 2024 Thapelo Magqazana. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      
+    <script src="script.js"></script>
+</body>
 </html>
